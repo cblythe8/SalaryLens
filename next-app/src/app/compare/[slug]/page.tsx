@@ -9,6 +9,8 @@ import {
   formatNumber,
 } from "@/lib/data";
 
+export const dynamic = "force-dynamic";
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
