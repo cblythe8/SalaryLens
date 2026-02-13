@@ -12,10 +12,6 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  return getUniqueCities().map((city) => ({ slug: city.slug }));
-}
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const records = getSalariesByCity(slug);

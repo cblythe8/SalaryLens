@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Metadata } from "next";
 import {
   getSalaryBySlug,
-  getAllSlugs,
   getSalariesByOccupation,
   formatSalary,
   formatNumber,
@@ -11,10 +10,6 @@ import {
 
 interface PageProps {
   params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

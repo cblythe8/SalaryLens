@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Metadata } from "next";
 import {
-  getComparisonSlugs,
   parseComparisonSlug,
   getSalariesByCity,
   getUniqueCities,
@@ -12,10 +11,6 @@ import {
 
 interface PageProps {
   params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-  return getComparisonSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
