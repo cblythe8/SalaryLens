@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   },
   description:
     "Explore salary data for thousands of jobs across US and Canadian metro areas. See median pay, salary ranges, and compare cities.",
+  verification: {
+    google: "AiWzsea52PHOXdciBBXv_A2p1zecscppJ5fPDeVYgvE",
+  },
 };
 
 export default function RootLayout({

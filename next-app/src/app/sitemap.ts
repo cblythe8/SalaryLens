@@ -7,7 +7,7 @@ import {
 } from "@/lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://salarylens.com";
+  const baseUrl = "https://thesalarylens.com";
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1.0 },
