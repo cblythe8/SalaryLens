@@ -49,7 +49,7 @@ export default async function SalaryPage({ params }: PageProps) {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       {/* Breadcrumb */}
-      <nav className="text-sm text-gray-600 mb-6">
+      <nav className="text-sm text-gray-800 mb-6">
         <Link href="/" className="hover:text-blue-600">Home</Link>
         {" / "}
         <Link href={`/jobs/${record.occ_slug}`} className="hover:text-blue-600">
@@ -63,7 +63,7 @@ export default async function SalaryPage({ params }: PageProps) {
       <h1 className="text-3xl md:text-4xl font-bold mb-2">
         {record.occ_name} Salary in {record.city_short}, {record.state}
       </h1>
-      <p className="text-gray-600 mb-8">
+      <p className="text-gray-800 mb-8">
         Updated 2024 &middot; Source: {record.country === "CA" ? "Statistics Canada" : "U.S. Bureau of Labor Statistics"}
         {record.currency === "CAD" && <span className="ml-2 text-xs bg-gray-100 px-2 py-0.5 rounded">CAD</span>}
       </p>
@@ -71,23 +71,23 @@ export default async function SalaryPage({ params }: PageProps) {
       {/* Key Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
         <div className="bg-white rounded-lg border border-gray-200 p-4">
-          <p className="text-sm text-gray-600">Median Salary</p>
+          <p className="text-sm text-gray-800">Median Salary</p>
           <p className="text-2xl font-bold text-blue-600">
             {formatSalary(record.median_annual, record.currency)}
           </p>
         </div>
         <div className="bg-white rounded-lg border border-gray-200 p-4">
-          <p className="text-sm text-gray-600">Average Salary</p>
+          <p className="text-sm text-gray-800">Average Salary</p>
           <p className="text-2xl font-bold">{formatSalary(record.mean_annual, record.currency)}</p>
         </div>
         <div className="bg-white rounded-lg border border-gray-200 p-4">
-          <p className="text-sm text-gray-600">Salary Range</p>
+          <p className="text-sm text-gray-800">Salary Range</p>
           <p className="text-lg font-semibold">
             {formatSalary(record.pct10_annual, record.currency)} - {formatSalary(record.pct90_annual, record.currency)}
           </p>
         </div>
         <div className="bg-white rounded-lg border border-gray-200 p-4">
-          <p className="text-sm text-gray-600">Employed</p>
+          <p className="text-sm text-gray-800">Employed</p>
           <p className="text-2xl font-bold">{formatNumber(record.employment)}</p>
         </div>
       </div>
@@ -104,7 +104,7 @@ export default async function SalaryPage({ params }: PageProps) {
             { label: "Bottom 10%", value: record.pct10_annual, color: "bg-red-400" },
           ].map((item) => (
             <div key={item.label} className="flex items-center gap-4">
-              <span className="text-sm text-gray-600 w-36 text-right">{item.label}</span>
+              <span className="text-sm text-gray-800 w-36 text-right">{item.label}</span>
               <div className="flex-1 bg-gray-100 rounded-full h-6 relative">
                 <div
                   className={`${item.color} h-6 rounded-full flex items-center justify-end pr-2`}
@@ -118,7 +118,7 @@ export default async function SalaryPage({ params }: PageProps) {
             </div>
           ))}
         </div>
-        <p className="text-xs text-gray-600 mt-4">
+        <p className="text-xs text-gray-800 mt-4">
           10th to 90th percentile range. Half of all {record.occ_name.toLowerCase()} earn
           between {formatSalary(record.pct25_annual, record.currency)} and {formatSalary(record.pct75_annual, record.currency)}.
         </p>
@@ -132,7 +132,7 @@ export default async function SalaryPage({ params }: PageProps) {
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">{occContent.description}</p>
           {cityContentData && (
-            <p className="text-gray-600 text-sm">
+            <p className="text-gray-800 text-sm">
               In {record.city_short}, {record.occ_name.toLowerCase()} benefit from {
                 cityContentData.cost_of_living === "high"
                   ? "higher salaries that reflect the area's elevated cost of living"
@@ -162,7 +162,7 @@ export default async function SalaryPage({ params }: PageProps) {
           <div className="bg-white rounded-lg border border-gray-200 p-6">
             <h3 className="text-lg font-bold mb-2">Education</h3>
             <p className="text-blue-600 text-sm font-medium mb-1">{occContent.education}</p>
-            <p className="text-gray-600 text-xs">{occContent.education_detail}</p>
+            <p className="text-gray-800 text-xs">{occContent.education_detail}</p>
           </div>
         </div>
       )}
@@ -192,10 +192,10 @@ export default async function SalaryPage({ params }: PageProps) {
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-200">
-                  <th className="text-left py-3 font-medium text-gray-600">City</th>
-                  <th className="text-right py-3 font-medium text-gray-600">Median</th>
-                  <th className="text-right py-3 font-medium text-gray-600">Range</th>
-                  <th className="text-right py-3 font-medium text-gray-600">vs {record.city_short}</th>
+                  <th className="text-left py-3 font-medium text-gray-800">City</th>
+                  <th className="text-right py-3 font-medium text-gray-800">Median</th>
+                  <th className="text-right py-3 font-medium text-gray-800">Range</th>
+                  <th className="text-right py-3 font-medium text-gray-800">vs {record.city_short}</th>
                 </tr>
               </thead>
               <tbody>
@@ -216,7 +216,7 @@ export default async function SalaryPage({ params }: PageProps) {
                       <td className="text-right py-3 font-medium">
                         {formatSalary(city.median_annual, city.currency)}
                       </td>
-                      <td className="text-right py-3 text-gray-600">
+                      <td className="text-right py-3 text-gray-800">
                         {formatSalary(city.pct10_annual, city.currency)} - {formatSalary(city.pct90_annual, city.currency)}
                       </td>
                       <td className={`text-right py-3 font-medium ${diff > 0 ? "text-green-600" : "text-red-600"}`}>

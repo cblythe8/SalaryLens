@@ -33,7 +33,7 @@ export default function RootLayout({
             <Link href="/" className="text-xl font-bold text-blue-600">
               SalaryLens
             </Link>
-            <div className="flex gap-6 text-sm font-medium text-gray-600">
+            <div className="flex gap-6 text-sm font-medium text-gray-800">
               <Link href="/salaries" className="hover:text-blue-600 transition-colors">
                 Salaries
               </Link>
@@ -51,7 +51,7 @@ export default function RootLayout({
         </nav>
         <main>{children}</main>
         <footer className="bg-white border-t border-gray-200 mt-16">
-          <div className="max-w-6xl mx-auto px-4 py-8 text-center text-sm text-gray-600">
+          <div className="max-w-6xl mx-auto px-4 py-8 text-center text-sm text-gray-800">
             <p>Data sourced from the U.S. Bureau of Labor Statistics (BLS) and Statistics Canada.</p>
             <p className="mt-1">Salary figures are annual estimates and may vary based on experience, education, and other factors.</p>
           </div>
