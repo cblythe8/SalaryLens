@@ -50,7 +50,8 @@ For Canadian data, US medians are converted using a wage factor (0.82x) to refle
 | Frontend | Next.js 16 (App Router) + TypeScript | Static site generation, great SEO, Vercel deployment |
 | Styling | Tailwind CSS | Fast to build, responsive out of the box |
 | Data | Python + JSON | Simple, no database needed |
-| Hosting | Vercel (planned) | Free tier, perfect for Next.js, handles 30k+ pages |
+| Hosting | Vercel | Free tier, perfect for Next.js, handles 30k+ pages |
+| Domain | thesalarylens.com (Namecheap) | Custom domain, SSL auto-configured by Vercel |
 | Monetization | Google AdSense + affiliate links (planned) | Passive income from organic traffic |
 
 ## Project Structure
@@ -110,6 +111,19 @@ salary-site/
 9. **Expanded to 50 US metros + 10 CA cities** — 29,340 total records, 31,659 pages
 10. **Got BLS API key** — Built `build_from_api.py` to optionally replace generated data with real government numbers
 
+### Session 3 (Deployment)
+1. **Pushed to GitHub** — https://github.com/cblythe8/SalaryLens
+2. **Removed API key from source code** — Changed to environment variable before pushing
+3. **Added README.md** to GitHub repo
+4. **Deployed to Vercel** — Solved three deployment failures:
+   - `generateStaticParams` trying to pre-render 31,659 pages → removed from all dynamic routes
+   - Salaries index page was 32.77 MB → rewrote to show top 50 + browse links
+   - ISR fallback bundling 13MB data file → added `force-dynamic` to all dynamic routes
+5. **Bought domain** — thesalarylens.com on Namecheap ($9/year .com deal)
+6. **Connected domain to Vercel** — A record + CNAME, SSL auto-configured
+7. **Google Search Console** — Verified ownership with meta tag, submitted sitemap (31,659 URLs)
+8. **Site is live** at https://thesalarylens.com
+
 ## How To Run It
 
 ```bash
@@ -137,11 +151,18 @@ python3 build_from_api.py
 - **Scale** — 489 occupations, 60 cities, 31,659 pages, auto-generated sitemap
 - **SEO best practices** — JSON-LD structured data, internal linking strategy, meta tags, sitemap
 
+## Current Status
+
+- **Live at:** https://thesalarylens.com
+- **GitHub:** https://github.com/cblythe8/SalaryLens
+- **Google Search Console:** Verified, sitemap submitted
+- **Waiting for:** Google to index pages (typically 1-4 weeks)
+
 ## Remaining Steps
 
-1. **Deploy** — Push to GitHub, deploy to Vercel
-2. **Domain** — Buy a domain name (e.g., salarylens.com)
-3. **Google Search Console** — Submit sitemap, monitor indexing
+1. ~~**Deploy** — Push to GitHub, deploy to Vercel~~ ✅
+2. ~~**Domain** — Buy a domain name~~ ✅ thesalarylens.com
+3. ~~**Google Search Console** — Submit sitemap, monitor indexing~~ ✅ Verified + sitemap submitted
 4. **Monetization** — Apply for Google AdSense (need some traffic first), add affiliate links to job boards
 5. **Optional improvements:**
    - AI-generated content per page (career advice, skills needed, etc.)

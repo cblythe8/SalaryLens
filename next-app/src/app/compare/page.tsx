@@ -41,7 +41,7 @@ export default function ComparePage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-2">Compare City Salaries</h1>
-      <p className="text-gray-800 mb-8">
+      <p className="text-gray-900 mb-8">
         See how salaries stack up across different cities
       </p>
 
@@ -68,7 +68,7 @@ export default function ComparePage() {
                       Avg: {formatSalary(cityA.avgMedian, cityA.currency)}
                     </p>
                   </div>
-                  <span className="text-gray-800 font-bold text-sm mx-3">VS</span>
+                  <span className="text-gray-900 font-bold text-sm mx-3">VS</span>
                   <div className="text-right">
                     <p className="font-semibold text-gray-900">
                       {cityB.name}, {cityB.state}
@@ -87,7 +87,7 @@ export default function ComparePage() {
       {/* All Cities Grid */}
       <div>
         <h2 className="text-xl font-bold mb-4">Browse All Cities</h2>
-        <p className="text-sm text-gray-800 mb-4">
+        <p className="text-sm text-gray-900 mb-4">
           Pick any two cities to compare. Click a city to see its full salary data.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
@@ -100,7 +100,7 @@ export default function ComparePage() {
               <p className="text-sm font-medium text-gray-900">
                 {city.name}, {city.state}
               </p>
-              <p className="text-xs text-gray-800">
+              <p className="text-xs text-gray-900">
                 Avg: {formatSalary(city.avgMedian, city.currency)} &middot; {city.jobCount} jobs
               </p>
             </Link>

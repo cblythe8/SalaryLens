@@ -21,7 +21,7 @@ export default function SalariesPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-2">Salary Data</h1>
-      <p className="text-gray-800 mb-8">
+      <p className="text-gray-900 mb-8">
         {occupations.length} occupations across {cities.length} cities in the US
         and Canada
       </p>
@@ -33,16 +33,16 @@ export default function SalariesPage() {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-gray-200 bg-gray-50">
-                <th className="text-left py-3 px-4 font-medium text-gray-800">
+                <th className="text-left py-3 px-4 font-medium text-gray-900">
                   Job Title
                 </th>
-                <th className="text-left py-3 px-4 font-medium text-gray-800">
+                <th className="text-left py-3 px-4 font-medium text-gray-900">
                   City
                 </th>
-                <th className="text-right py-3 px-4 font-medium text-gray-800">
+                <th className="text-right py-3 px-4 font-medium text-gray-900">
                   Median
                 </th>
-                <th className="text-right py-3 px-4 font-medium text-gray-800">
+                <th className="text-right py-3 px-4 font-medium text-gray-900">
                   Range
                 </th>
               </tr>
@@ -66,13 +66,13 @@ export default function SalariesPage() {
                         {r.occ_name}
                       </Link>
                     </td>
-                    <td className="py-3 px-4 text-gray-800">
+                    <td className="py-3 px-4 text-gray-900">
                       {r.city_short}, {r.state}
                     </td>
                     <td className="text-right py-3 px-4 font-medium">
                       {formatSalary(r.median_annual, r.currency)}
                     </td>
-                    <td className="text-right py-3 px-4 text-gray-800">
+                    <td className="text-right py-3 px-4 text-gray-900">
                       {formatSalary(r.pct10_annual, r.currency)} &ndash;{" "}
                       {formatSalary(r.pct90_annual, r.currency)}
                     </td>

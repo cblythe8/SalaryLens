@@ -20,15 +20,15 @@ export default function JobsPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-2">Browse Jobs</h1>
-      <p className="text-gray-800 mb-8">Salary data for {occupations.length} occupations</p>
+      <p className="text-gray-900 mb-8">Salary data for {occupations.length} occupations</p>
 
       <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-gray-200 bg-gray-50">
-              <th className="text-left py-3 px-4 font-medium text-gray-800">Job Title</th>
-              <th className="text-right py-3 px-4 font-medium text-gray-800">Avg Median Salary</th>
-              <th className="text-right py-3 px-4 font-medium text-gray-800">Cities</th>
+              <th className="text-left py-3 px-4 font-medium text-gray-900">Job Title</th>
+              <th className="text-right py-3 px-4 font-medium text-gray-900">Avg Median Salary</th>
+              <th className="text-right py-3 px-4 font-medium text-gray-900">Cities</th>
             </tr>
           </thead>
           <tbody>
@@ -42,7 +42,7 @@ export default function JobsPage() {
                 <td className="text-right py-3 px-4 font-medium">
                   {formatSalary(occ.avgMedian)}
                 </td>
-                <td className="text-right py-3 px-4 text-gray-800">
+                <td className="text-right py-3 px-4 text-gray-900">
                   {occ.cityCount}
                 </td>
               </tr>
