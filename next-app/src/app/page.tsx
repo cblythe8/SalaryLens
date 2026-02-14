@@ -92,7 +92,7 @@ export default function Home() {
             <Link
               key={occ.slug}
               href={`/jobs/${occ.slug}`}
-              className="bg-white rounded-lg border border-gray-200 px-4 py-3 text-sm text-gray-700 hover:text-blue-600 hover:border-blue-300 hover:shadow-sm transition-all"
+              className="bg-white rounded-lg border border-gray-200 px-4 py-3 text-sm text-gray-900 hover:text-blue-600 hover:border-blue-300 hover:shadow-sm transition-all"
             >
               {occ.name}
             </Link>
@@ -108,7 +108,7 @@ export default function Home() {
             <Link
               key={city.slug}
               href={`/cities/${city.slug}`}
-              className="bg-white rounded-lg border border-gray-200 px-4 py-3 text-sm text-gray-700 hover:text-blue-600 hover:border-blue-300 hover:shadow-sm transition-all"
+              className="bg-white rounded-lg border border-gray-200 px-4 py-3 text-sm text-gray-900 hover:text-blue-600 hover:border-blue-300 hover:shadow-sm transition-all"
             >
               {city.name}, {city.state}
             </Link>

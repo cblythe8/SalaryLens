@@ -92,7 +92,7 @@ export default function SalariesPage() {
             <Link
               key={occ.slug}
               href={`/jobs/${occ.slug}`}
-              className="text-sm text-gray-700 hover:text-blue-600 hover:underline py-1"
+              className="text-sm text-gray-900 hover:text-blue-600 hover:underline py-1"
             >
               {occ.name}
             </Link>
@@ -108,7 +108,7 @@ export default function SalariesPage() {
             <Link
               key={city.slug}
               href={`/cities/${city.slug}`}
-              className="text-sm text-gray-700 hover:text-blue-600 hover:underline py-1"
+              className="text-sm text-gray-900 hover:text-blue-600 hover:underline py-1"
             >
               {city.name}, {city.state}
             </Link>

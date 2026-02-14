@@ -85,7 +85,7 @@ export default async function JobPage({ params }: PageProps) {
       {content && (
         <div className="bg-white rounded-lg border border-gray-200 p-6 mb-10">
           <h2 className="text-xl font-bold mb-3">What Do {name} Do?</h2>
-          <p className="text-gray-700 leading-relaxed">{content.description}</p>
+          <p className="text-gray-900 leading-relaxed">{content.description}</p>
           {content.work_environment && (
             <p className="text-gray-800 mt-3 text-sm">{content.work_environment}</p>
           )}
@@ -129,7 +129,7 @@ export default async function JobPage({ params }: PageProps) {
             {content.salary_tips.map((tip, i) => (
               <li key={i} className="flex items-start gap-3">
                 <span className="text-blue-500 font-bold mt-0.5">{i + 1}.</span>
-                <span className="text-gray-700">{tip}</span>
+                <span className="text-gray-900">{tip}</span>
               </li>
             ))}
           </ul>

@@ -82,7 +82,7 @@ export default async function CityPage({ params }: PageProps) {
       {cityContent && (
         <div className="bg-white rounded-lg border border-gray-200 p-6 mb-10">
           <h2 className="text-xl font-bold mb-3">Job Market in {city.city_short}</h2>
-          <p className="text-gray-700 leading-relaxed">{cityContent.overview}</p>
+          <p className="text-gray-900 leading-relaxed">{cityContent.overview}</p>
         </div>
       )}
 
@@ -93,7 +93,7 @@ export default async function CityPage({ params }: PageProps) {
             <h2 className="text-lg font-bold mb-3">Top Industries</h2>
             <ul className="space-y-2">
               {cityContent.top_industries.map((industry) => (
-                <li key={industry} className="flex items-center gap-2 text-gray-700 text-sm">
+                <li key={industry} className="flex items-center gap-2 text-gray-900 text-sm">
                   <span className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" />
                   {industry}
                 </li>

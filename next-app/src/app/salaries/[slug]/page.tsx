@@ -130,7 +130,7 @@ export default async function SalaryPage({ params }: PageProps) {
           <h2 className="text-xl font-bold mb-3">
             About {record.occ_name} in {record.city_short}
           </h2>
-          <p className="text-gray-700 leading-relaxed mb-4">{occContent.description}</p>
+          <p className="text-gray-900 leading-relaxed mb-4">{occContent.description}</p>
           {cityContentData && (
             <p className="text-gray-800 text-sm">
               In {record.city_short}, {record.occ_name.toLowerCase()} benefit from {
@@ -175,7 +175,7 @@ export default async function SalaryPage({ params }: PageProps) {
             {occContent.salary_tips.map((tip, i) => (
               <div key={i} className="flex items-start gap-2">
                 <span className="text-blue-500 font-bold text-sm mt-0.5">{i + 1}.</span>
-                <span className="text-gray-700 text-sm">{tip}</span>
+                <span className="text-gray-900 text-sm">{tip}</span>
               </div>
             ))}
           </div>

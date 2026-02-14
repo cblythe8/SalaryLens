@@ -115,7 +115,7 @@ export default function SearchBar({
     <div className={`relative ${className}`}>
       <div className="relative">
         <svg
-          className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
+          className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-800"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -166,7 +166,7 @@ export default function SearchBar({
             >
               <div>
                 <p className="font-medium text-gray-900 text-sm">{item.label}</p>
-                <p className="text-xs text-gray-500">{item.sublabel}</p>
+                <p className="text-xs text-gray-800">{item.sublabel}</p>
               </div>
               <span
                 className={`text-xs px-2 py-0.5 rounded-full font-medium ${typeColors[item.type]}`}
@@ -181,7 +181,7 @@ export default function SearchBar({
       {isOpen && query.length >= 2 && !isLoading && results.length === 0 && (
         <div
           ref={dropdownRef}
-          className="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg border border-gray-200 shadow-lg z-50 p-4 text-center text-sm text-gray-500"
+          className="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg border border-gray-200 shadow-lg z-50 p-4 text-center text-sm text-gray-800"
         >
           No results found for &ldquo;{query}&rdquo;
         </div>
