@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import {
   getUniqueOccupations,
   getSalariesByOccupation,
+  getOccupationContent,
   formatSalary,
   formatNumber,
 } from "@/lib/data";
@@ -38,6 +39,8 @@ export default async function JobPage({ params }: PageProps) {
 
   const name = records[0].occ_name;
   const sorted = [...records].sort((a, b) => b.median_annual - a.median_annual);
+
+  const content = getOccupationContent(slug);
 
   const avgMedian = Math.round(
     records.reduce((sum, r) => sum + r.median_annual, 0) / records.length
@@ -77,6 +80,61 @@ export default async function JobPage({ params }: PageProps) {
           <p className="text-2xl font-bold">{formatNumber(totalEmployment)}</p>
         </div>
       </div>
+
+      {/* Career Overview */}
+      {content && (
+        <div className="bg-white rounded-lg border border-gray-200 p-6 mb-10">
+          <h2 className="text-xl font-bold mb-3">What Do {name} Do?</h2>
+          <p className="text-gray-700 leading-relaxed">{content.description}</p>
+          {content.work_environment && (
+            <p className="text-gray-600 mt-3 text-sm">{content.work_environment}</p>
+          )}
+        </div>
+      )}
+
+      {/* Key Skills */}
+      {content?.skills && (
+        <div className="bg-white rounded-lg border border-gray-200 p-6 mb-10">
+          <h2 className="text-xl font-bold mb-4">Key Skills for {name}</h2>
+          <div className="flex flex-wrap gap-2">
+            {content.skills.map((skill) => (
+              <span key={skill} className="bg-blue-50 text-blue-700 px-3 py-1.5 rounded-full text-sm font-medium">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Education + Career Outlook */}
+      {content && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+          <div className="bg-white rounded-lg border border-gray-200 p-6">
+            <h2 className="text-lg font-bold mb-2">Education Requirements</h2>
+            <p className="text-sm font-medium text-blue-600 mb-2">{content.education}</p>
+            <p className="text-gray-600 text-sm">{content.education_detail}</p>
+          </div>
+          <div className="bg-white rounded-lg border border-gray-200 p-6">
+            <h2 className="text-lg font-bold mb-2">Career Outlook</h2>
+            <p className="text-gray-600 text-sm">{content.career_outlook}</p>
+          </div>
+        </div>
+      )}
+
+      {/* Salary Tips */}
+      {content?.salary_tips && (
+        <div className="bg-white rounded-lg border border-gray-200 p-6 mb-10">
+          <h2 className="text-xl font-bold mb-4">How to Increase Your {name} Salary</h2>
+          <ul className="space-y-3">
+            {content.salary_tips.map((tip, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <span className="text-blue-500 font-bold mt-0.5">{i + 1}.</span>
+                <span className="text-gray-700">{tip}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* All Cities Table */}
       <div className="bg-white rounded-lg border border-gray-200 p-6">

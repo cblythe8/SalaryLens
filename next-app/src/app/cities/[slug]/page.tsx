@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import {
   getUniqueCities,
   getSalariesByCity,
+  getCityContent,
   formatSalary,
   formatNumber,
 } from "@/lib/data";
@@ -35,6 +36,7 @@ export default async function CityPage({ params }: PageProps) {
   if (records.length === 0) notFound();
 
   const city = records[0];
+  const cityContent = getCityContent(slug);
   const sorted = [...records].sort((a, b) => b.median_annual - a.median_annual);
 
   const avgMedian = Math.round(
@@ -75,6 +77,42 @@ export default async function CityPage({ params }: PageProps) {
           <p className="text-2xl font-bold">{formatNumber(totalEmployment)}</p>
         </div>
       </div>
+
+      {/* City Overview */}
+      {cityContent && (
+        <div className="bg-white rounded-lg border border-gray-200 p-6 mb-10">
+          <h2 className="text-xl font-bold mb-3">Job Market in {city.city_short}</h2>
+          <p className="text-gray-700 leading-relaxed">{cityContent.overview}</p>
+        </div>
+      )}
+
+      {/* Top Industries + Cost of Living */}
+      {cityContent && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+          <div className="bg-white rounded-lg border border-gray-200 p-6">
+            <h2 className="text-lg font-bold mb-3">Top Industries</h2>
+            <ul className="space-y-2">
+              {cityContent.top_industries.map((industry) => (
+                <li key={industry} className="flex items-center gap-2 text-gray-700 text-sm">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" />
+                  {industry}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="bg-white rounded-lg border border-gray-200 p-6">
+            <h2 className="text-lg font-bold mb-3">Cost of Living</h2>
+            <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium mb-2 ${
+              cityContent.cost_of_living === "high" ? "bg-red-100 text-red-700" :
+              cityContent.cost_of_living === "low" ? "bg-green-100 text-green-700" :
+              "bg-yellow-100 text-yellow-700"
+            }`}>
+              {cityContent.cost_of_living.charAt(0).toUpperCase() + cityContent.cost_of_living.slice(1)}
+            </span>
+            <p className="text-gray-600 text-sm">{cityContent.cost_of_living_detail}</p>
+          </div>
+        </div>
+      )}
 
       {/* All Jobs Table */}
       <div className="bg-white rounded-lg border border-gray-200 p-6">

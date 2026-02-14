@@ -4,6 +4,8 @@ import { Metadata } from "next";
 import {
   getSalaryBySlug,
   getSalariesByOccupation,
+  getOccupationContent,
+  getCityContent,
   formatSalary,
   formatNumber,
 } from "@/lib/data";
@@ -30,6 +32,10 @@ export default async function SalaryPage({ params }: PageProps) {
   const record = getSalaryBySlug(slug);
 
   if (!record) notFound();
+
+  const occContent = getOccupationContent(record.occ_slug);
+  const citySlugForContent = record.city_short.toLowerCase().replace(/\s+/g, "-");
+  const cityContentData = getCityContent(citySlugForContent);
 
   // Get same occupation in other cities for comparison
   const otherCities = getSalariesByOccupation(record.occ_slug)
@@ -117,6 +123,64 @@ export default async function SalaryPage({ params }: PageProps) {
           between {formatSalary(record.pct25_annual, record.currency)} and {formatSalary(record.pct75_annual, record.currency)}.
         </p>
       </div>
+
+      {/* About This Role */}
+      {occContent && (
+        <div className="bg-white rounded-lg border border-gray-200 p-6 mb-10">
+          <h2 className="text-xl font-bold mb-3">
+            About {record.occ_name} in {record.city_short}
+          </h2>
+          <p className="text-gray-700 leading-relaxed mb-4">{occContent.description}</p>
+          {cityContentData && (
+            <p className="text-gray-600 text-sm">
+              In {record.city_short}, {record.occ_name.toLowerCase()} benefit from {
+                cityContentData.cost_of_living === "high"
+                  ? "higher salaries that reflect the area's elevated cost of living"
+                  : cityContentData.cost_of_living === "low"
+                  ? "a lower cost of living that stretches their salary further"
+                  : "a moderate cost of living that balances earnings with expenses"
+              }.
+              {cityContentData.top_industries.length > 0 && ` The area's major industries include ${cityContentData.top_industries.slice(0, 3).join(", ")}.`}
+            </p>
+          )}
+        </div>
+      )}
+
+      {/* Key Skills + Education */}
+      {occContent && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+          <div className="bg-white rounded-lg border border-gray-200 p-6">
+            <h3 className="text-lg font-bold mb-3">Key Skills</h3>
+            <div className="flex flex-wrap gap-2">
+              {occContent.skills.map((skill) => (
+                <span key={skill} className="bg-blue-50 text-blue-700 px-2.5 py-1 rounded-full text-xs font-medium">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="bg-white rounded-lg border border-gray-200 p-6">
+            <h3 className="text-lg font-bold mb-2">Education</h3>
+            <p className="text-blue-600 text-sm font-medium mb-1">{occContent.education}</p>
+            <p className="text-gray-600 text-xs">{occContent.education_detail}</p>
+          </div>
+        </div>
+      )}
+
+      {/* Salary Tips */}
+      {occContent?.salary_tips && (
+        <div className="bg-blue-50 rounded-lg border border-blue-200 p-6 mb-10">
+          <h2 className="text-xl font-bold mb-4">Tips to Earn More as a {record.occ_name}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {occContent.salary_tips.map((tip, i) => (
+              <div key={i} className="flex items-start gap-2">
+                <span className="text-blue-500 font-bold text-sm mt-0.5">{i + 1}.</span>
+                <span className="text-gray-700 text-sm">{tip}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Compare Other Cities */}
       {otherCities.length > 0 && (

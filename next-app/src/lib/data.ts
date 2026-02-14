@@ -1,4 +1,6 @@
 import salaryData from "./salary_data.json";
+import occupationContentData from "./occupation_content.json";
+import cityContentData from "./city_content.json";
 
 export interface SalaryRecord {
   area_code: string;
@@ -19,7 +21,28 @@ export interface SalaryRecord {
   pct90_annual: number;
 }
 
+export interface OccupationContent {
+  soc_group: string;
+  description: string;
+  skills: string[];
+  education: string;
+  education_detail: string;
+  career_outlook: string;
+  salary_tips: string[];
+  work_environment: string;
+  related_occupations: string[];
+}
+
+export interface CityContent {
+  overview: string;
+  top_industries: string[];
+  cost_of_living: string;
+  cost_of_living_detail: string;
+}
+
 const data: SalaryRecord[] = salaryData as SalaryRecord[];
+const occContent: Record<string, OccupationContent> = occupationContentData as Record<string, OccupationContent>;
+const ctyContent: Record<string, CityContent> = cityContentData as Record<string, CityContent>;
 
 export function getAllSalaryRecords(): SalaryRecord[] {
   return data;
@@ -114,6 +137,14 @@ export function getComparisonSlugs(): string[] {
     }
   }
   return slugs;
+}
+
+export function getOccupationContent(occSlug: string): OccupationContent | undefined {
+  return occContent[occSlug];
+}
+
+export function getCityContent(citySlug: string): CityContent | undefined {
+  return ctyContent[citySlug];
 }
 
 export function parseComparisonSlug(slug: string): { cityA: string; cityB: string } | null {

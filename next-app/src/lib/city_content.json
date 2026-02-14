@@ -1,0 +1,722 @@
+{
+  "new-york": {
+    "overview": "New York City is one of the world's largest and most diverse job markets, serving as a global hub for finance, media, technology, and healthcare. The metropolitan area employs millions across virtually every industry, with particularly strong opportunities in financial services, advertising, and professional services.",
+    "top_industries": [
+      "Finance & Banking",
+      "Healthcare",
+      "Technology",
+      "Media & Entertainment",
+      "Professional Services"
+    ],
+    "cost_of_living": "high",
+    "cost_of_living_detail": "New York has one of the highest costs of living in the US, driven primarily by housing costs. Salaries typically run 20-30% above national averages to compensate, though purchasing power can still lag behind less expensive metros."
+  },
+  "los-angeles": {
+    "overview": "Los Angeles is a major economic engine with strengths in entertainment, aerospace, technology, and international trade. The vast metropolitan area offers diverse career opportunities, from Hollywood studios to Silicon Beach tech startups to the nation's busiest port complex.",
+    "top_industries": [
+      "Entertainment & Media",
+      "Aerospace & Defense",
+      "Technology",
+      "International Trade",
+      "Healthcare"
+    ],
+    "cost_of_living": "high",
+    "cost_of_living_detail": "Los Angeles has a high cost of living, particularly for housing and transportation. Salaries are generally above national averages, though the premium is somewhat offset by California's higher state income taxes."
+  },
+  "chicago": {
+    "overview": "Chicago is a major business and financial center with a diversified economy spanning manufacturing, finance, technology, and professional services. The city's central location and strong infrastructure make it a hub for transportation, logistics, and corporate headquarters.",
+    "top_industries": [
+      "Finance & Insurance",
+      "Manufacturing",
+      "Technology",
+      "Professional Services",
+      "Transportation & Logistics"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Chicago offers a moderate cost of living compared to coastal cities, with more affordable housing and reasonable transportation costs. Salaries are competitive and generally stretch further than in New York or San Francisco."
+  },
+  "dallas": {
+    "overview": "Dallas-Fort Worth is one of the fastest-growing metros in the US, with a booming economy driven by technology, financial services, and corporate relocations. The area has attracted numerous Fortune 500 headquarters and offers strong job growth across multiple sectors.",
+    "top_industries": [
+      "Technology",
+      "Financial Services",
+      "Healthcare",
+      "Telecommunications",
+      "Energy"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Dallas offers a moderate cost of living with relatively affordable housing compared to coastal cities. No state income tax in Texas means workers keep more of their earnings, making it an attractive option for salary-conscious professionals."
+  },
+  "houston": {
+    "overview": "Houston is the energy capital of the world, with a strong economy anchored by oil and gas, healthcare, and aerospace. The Texas Medical Center and NASA's Johnson Space Center are major employers, and the city's diverse population supports a broad range of industries.",
+    "top_industries": [
+      "Energy & Oil/Gas",
+      "Healthcare",
+      "Aerospace",
+      "Manufacturing",
+      "International Trade"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Houston offers a moderate cost of living with affordable housing by major metro standards. Like Dallas, there is no state income tax, which effectively increases take-home pay for all workers."
+  },
+  "san-francisco": {
+    "overview": "San Francisco is the epicenter of the global technology industry, home to countless startups and major tech companies. The Bay Area offers some of the highest salaries in the country, particularly in software engineering, data science, and product management.",
+    "top_industries": [
+      "Technology",
+      "Finance & Venture Capital",
+      "Biotech & Life Sciences",
+      "Professional Services",
+      "Tourism"
+    ],
+    "cost_of_living": "high",
+    "cost_of_living_detail": "San Francisco has one of the highest costs of living in the nation, with extremely expensive housing. While salaries are significantly above average, the high cost of living means purchasing power is often lower than in more affordable metros."
+  },
+  "san-jose": {
+    "overview": "San Jose sits at the heart of Silicon Valley, the world's leading technology innovation hub. Major tech companies including Apple, Google, and Adobe are headquartered in the area, creating an incredibly dense concentration of high-paying technology jobs.",
+    "top_industries": [
+      "Technology & Software",
+      "Semiconductor Manufacturing",
+      "Clean Energy",
+      "Advanced Manufacturing",
+      "Biotech"
+    ],
+    "cost_of_living": "high",
+    "cost_of_living_detail": "San Jose has an extremely high cost of living, with housing costs among the highest in the nation. Tech salaries are the highest in the country, but significant income is needed to afford living in Silicon Valley."
+  },
+  "seattle": {
+    "overview": "Seattle has emerged as a major technology hub, home to Amazon, Microsoft, and a growing startup ecosystem. The city also has strong aerospace (Boeing), healthcare, and retail sectors, offering diverse career opportunities with competitive compensation.",
+    "top_industries": [
+      "Technology",
+      "Aerospace & Defense",
+      "Healthcare",
+      "E-Commerce & Retail",
+      "Cloud Computing"
+    ],
+    "cost_of_living": "high",
+    "cost_of_living_detail": "Seattle has a high cost of living, primarily due to rising housing costs. However, Washington state has no income tax, which effectively boosts take-home pay compared to high-tax states like California."
+  },
+  "washington-dc": {
+    "overview": "Washington DC's economy is anchored by the federal government, with extensive opportunities in government contracting, cybersecurity, consulting, and nonprofit organizations. The area also has a growing technology sector and strong healthcare institutions.",
+    "top_industries": [
+      "Federal Government",
+      "Government Contracting",
+      "Cybersecurity",
+      "Consulting",
+      "Healthcare"
+    ],
+    "cost_of_living": "high",
+    "cost_of_living_detail": "The DC metro area has a high cost of living, with expensive housing in the District and nearby suburbs. However, government and contractor salaries are generally competitive, and federal benefits packages add significant value."
+  },
+  "boston": {
+    "overview": "Boston is a world-class center for education, healthcare, and biotechnology. Home to Harvard, MIT, and numerous leading hospitals, the city offers exceptional opportunities in life sciences, technology, and financial services.",
+    "top_industries": [
+      "Biotech & Life Sciences",
+      "Higher Education",
+      "Healthcare",
+      "Technology",
+      "Financial Services"
+    ],
+    "cost_of_living": "high",
+    "cost_of_living_detail": "Boston has a high cost of living, particularly for housing. Salaries in biotech, tech, and healthcare are well above national averages, reflecting both the high demand for talent and the area's expensive real estate market."
+  },
+  "philadelphia": {
+    "overview": "Philadelphia has a diversified economy with strengths in healthcare, education, and financial services. The city's pharmaceutical and biotech sectors are growing, and its lower cost of living compared to New York makes it an attractive alternative for professionals.",
+    "top_industries": [
+      "Healthcare",
+      "Education",
+      "Financial Services",
+      "Pharmaceuticals",
+      "Manufacturing"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Philadelphia offers a moderate cost of living, significantly lower than neighboring New York City. Housing is more affordable, and the city provides a good balance of urban amenities and reasonable expenses."
+  },
+  "atlanta": {
+    "overview": "Atlanta is a major business hub in the Southeast, with a diverse economy spanning technology, media, logistics, and healthcare. The city is home to numerous Fortune 500 companies and has a rapidly growing tech scene.",
+    "top_industries": [
+      "Logistics & Transportation",
+      "Technology",
+      "Media & Entertainment",
+      "Healthcare",
+      "Financial Services"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Atlanta offers a moderate cost of living with relatively affordable housing for a major metro. The city provides a good balance of competitive salaries and reasonable living expenses."
+  },
+  "miami": {
+    "overview": "Miami is a gateway to Latin America with strengths in international trade, tourism, finance, and real estate. The city's diverse, multilingual workforce and growing tech scene make it an increasingly attractive market for professionals.",
+    "top_industries": [
+      "International Trade",
+      "Tourism & Hospitality",
+      "Real Estate",
+      "Finance",
+      "Healthcare"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Miami has a moderate to high cost of living, with rising housing costs. Florida has no state income tax, which increases take-home pay, though salaries tend to be somewhat below those in other major metros."
+  },
+  "phoenix": {
+    "overview": "Phoenix is one of the fastest-growing metros in the US, attracting businesses and workers with its lower costs and warm climate. The economy is diversified across technology, healthcare, financial services, and manufacturing.",
+    "top_industries": [
+      "Technology",
+      "Healthcare",
+      "Financial Services",
+      "Manufacturing",
+      "Real Estate"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Phoenix offers a moderate cost of living that is below the national average for major metros. Affordable housing and no state income tax make it an attractive relocation destination for cost-conscious professionals."
+  },
+  "minneapolis": {
+    "overview": "Minneapolis-St. Paul has a strong, diversified economy anchored by healthcare, finance, retail, and food production. The metro is home to numerous Fortune 500 companies and offers competitive salaries with a relatively affordable cost of living.",
+    "top_industries": [
+      "Healthcare",
+      "Financial Services",
+      "Retail",
+      "Food Production",
+      "Technology"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Minneapolis offers a moderate cost of living with affordable housing relative to coastal cities. The metro provides strong salaries and good purchasing power, though cold winters are a consideration."
+  },
+  "san-diego": {
+    "overview": "San Diego's economy is driven by defense, biotechnology, tourism, and a growing technology sector. The city's proximity to the US-Mexico border also supports international trade and manufacturing operations.",
+    "top_industries": [
+      "Defense & Military",
+      "Biotech & Life Sciences",
+      "Tourism",
+      "Technology",
+      "Healthcare"
+    ],
+    "cost_of_living": "high",
+    "cost_of_living_detail": "San Diego has a high cost of living, largely driven by housing costs. While salaries are above national averages, the cost premium is significant, particularly compared to other Sunbelt metros."
+  },
+  "denver": {
+    "overview": "Denver has a thriving economy with strengths in technology, aerospace, energy, and outdoor recreation industries. The city has attracted significant tech talent and corporate relocations in recent years.",
+    "top_industries": [
+      "Technology",
+      "Aerospace & Defense",
+      "Energy",
+      "Healthcare",
+      "Financial Services"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Denver has a moderate to high cost of living, with housing costs that have risen significantly in recent years. Salaries are competitive and the state offers a flat income tax rate."
+  },
+  "detroit": {
+    "overview": "Detroit's economy is anchored by the automotive industry, with major manufacturers and suppliers headquartered in the metro area. The city is also growing in technology, healthcare, and advanced manufacturing sectors.",
+    "top_industries": [
+      "Automotive",
+      "Manufacturing",
+      "Technology",
+      "Healthcare",
+      "Financial Services"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "Detroit has one of the lowest costs of living among major metros, with very affordable housing. Salaries go further here than in most other large cities, making it attractive for cost-conscious professionals."
+  },
+  "austin": {
+    "overview": "Austin is one of America's fastest-growing tech hubs, attracting major companies and startups with its business-friendly environment and vibrant culture. The city has become a top destination for technology workers and entrepreneurs.",
+    "top_industries": [
+      "Technology",
+      "Government",
+      "Education",
+      "Healthcare",
+      "Entertainment"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Austin's cost of living has risen significantly with its tech boom but remains moderate compared to Silicon Valley. No state income tax in Texas boosts take-home pay for workers."
+  },
+  "portland": {
+    "overview": "Portland has a diverse economy with strengths in technology, manufacturing, outdoor apparel, and creative industries. The city attracts talent with its quality of life, sustainability focus, and growing tech sector.",
+    "top_industries": [
+      "Technology",
+      "Manufacturing",
+      "Outdoor & Apparel",
+      "Healthcare",
+      "Creative Industries"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Portland has a moderate cost of living, though housing costs have risen. Oregon has no sales tax, which helps offset the state income tax. The city offers good value compared to nearby Seattle and California metros."
+  },
+  "nashville": {
+    "overview": "Nashville is a rapidly growing metro with a diversified economy beyond its famous music industry. Healthcare, education, finance, and technology sectors are all expanding, attracting businesses and workers from across the country.",
+    "top_industries": [
+      "Healthcare",
+      "Music & Entertainment",
+      "Education",
+      "Financial Services",
+      "Technology"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Nashville has a moderate cost of living with no state income tax on wages. Housing costs have risen with the city's popularity but remain affordable compared to coastal metros."
+  },
+  "raleigh": {
+    "overview": "Raleigh-Durham, anchored by Research Triangle Park, is a major hub for technology, biotechnology, and academic research. The presence of Duke, NC State, and UNC creates a highly educated workforce and strong innovation ecosystem.",
+    "top_industries": [
+      "Technology",
+      "Biotech & Pharmaceuticals",
+      "Education",
+      "Healthcare",
+      "Government"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Raleigh offers a moderate cost of living with affordable housing relative to major tech hubs. The combination of competitive tech salaries and reasonable costs makes it one of the best-value metros in the country."
+  },
+  "charlotte": {
+    "overview": "Charlotte is the second-largest banking center in the US, home to Bank of America and Truist. The city's economy extends beyond finance into technology, energy, and healthcare, with strong job growth across sectors.",
+    "top_industries": [
+      "Banking & Finance",
+      "Energy",
+      "Technology",
+      "Healthcare",
+      "Logistics"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Charlotte has a moderate cost of living with affordable housing and no local income tax. The city offers strong financial sector salaries in a relatively affordable market."
+  },
+  "salt-lake-city": {
+    "overview": "Salt Lake City has a growing technology sector, often called the 'Silicon Slopes,' alongside strengths in healthcare, outdoor recreation, and financial services. The metro offers a high quality of life with mountain access.",
+    "top_industries": [
+      "Technology",
+      "Healthcare",
+      "Financial Services",
+      "Outdoor Recreation",
+      "Mining & Resources"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Salt Lake City has a moderate cost of living, though housing prices have risen with the tech sector growth. The metro still offers good value compared to coastal tech hubs."
+  },
+  "las-vegas": {
+    "overview": "Las Vegas is best known for its tourism and entertainment industry, but the metro also has growing healthcare, technology, and logistics sectors. The city's business-friendly tax environment attracts corporate relocations.",
+    "top_industries": [
+      "Tourism & Hospitality",
+      "Entertainment & Gaming",
+      "Healthcare",
+      "Construction",
+      "Logistics"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Las Vegas has a moderate cost of living with affordable housing by major metro standards. Nevada has no state income tax, which increases take-home pay for workers."
+  },
+  "tampa": {
+    "overview": "Tampa's economy is driven by financial services, healthcare, technology, and tourism. The metro area has seen strong population and job growth, attracting remote workers and corporate relocations with its warm climate and affordable living.",
+    "top_industries": [
+      "Financial Services",
+      "Healthcare",
+      "Technology",
+      "Tourism",
+      "Defense"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Tampa has a moderate cost of living with no state income tax in Florida. Housing is relatively affordable, making it attractive for professionals relocating from higher-cost metros."
+  },
+  "orlando": {
+    "overview": "Orlando's economy extends well beyond its famous theme parks, with growing technology, simulation, and healthcare sectors. The metro's tourism infrastructure supports a large hospitality workforce, while the tech sector continues to expand.",
+    "top_industries": [
+      "Tourism & Hospitality",
+      "Technology & Simulation",
+      "Healthcare",
+      "Aerospace",
+      "Education"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Orlando has a moderate cost of living with no state income tax. Housing is affordable compared to many major metros, though prices have been rising with population growth."
+  },
+  "san-antonio": {
+    "overview": "San Antonio has a strong military presence and growing healthcare, cybersecurity, and financial services sectors. The city offers a relatively affordable cost of living with no state income tax.",
+    "top_industries": [
+      "Military & Defense",
+      "Healthcare",
+      "Cybersecurity",
+      "Financial Services",
+      "Tourism"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "San Antonio has a low cost of living with affordable housing and no state income tax. It offers some of the best purchasing power among major Texas metros."
+  },
+  "columbus": {
+    "overview": "Columbus is Ohio's capital and largest city, with a diverse economy anchored by government, education, insurance, and technology. The presence of Ohio State University drives research and innovation.",
+    "top_industries": [
+      "Government",
+      "Education",
+      "Insurance",
+      "Technology",
+      "Healthcare"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "Columbus has a low cost of living with very affordable housing. Salaries stretch further here than in most comparably sized metros, offering strong purchasing power."
+  },
+  "indianapolis": {
+    "overview": "Indianapolis has a diversified economy with strengths in healthcare, motorsports, logistics, and manufacturing. The city's central location makes it a natural transportation and distribution hub.",
+    "top_industries": [
+      "Healthcare",
+      "Manufacturing",
+      "Logistics",
+      "Insurance",
+      "Technology"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "Indianapolis has a low cost of living with very affordable housing. The city offers competitive salaries relative to its costs, making it one of the higher purchasing-power metros in the Midwest."
+  },
+  "pittsburgh": {
+    "overview": "Pittsburgh has transformed from its steel-industry roots into a hub for technology, healthcare, and education. Carnegie Mellon and the University of Pittsburgh drive innovation in robotics, AI, and life sciences.",
+    "top_industries": [
+      "Healthcare",
+      "Technology & Robotics",
+      "Education",
+      "Financial Services",
+      "Energy"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "Pittsburgh has a low cost of living with affordable housing and a high quality of life. Tech and healthcare salaries stretch significantly further than in coastal cities."
+  },
+  "st-louis": {
+    "overview": "St. Louis has a diversified economy with strengths in healthcare, biotechnology, financial services, and manufacturing. The metro area is home to several Fortune 500 companies and major medical institutions.",
+    "top_industries": [
+      "Healthcare",
+      "Biotechnology",
+      "Financial Services",
+      "Manufacturing",
+      "Defense"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "St. Louis has a low cost of living, particularly for housing. The city offers excellent purchasing power relative to salaries, especially in healthcare and finance."
+  },
+  "baltimore": {
+    "overview": "Baltimore's economy is driven by healthcare, higher education, and its proximity to Washington DC. Johns Hopkins University and Hospital are major employers, and the city benefits from significant federal spending in the region.",
+    "top_industries": [
+      "Healthcare",
+      "Education",
+      "Cybersecurity",
+      "Biotech",
+      "Government"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Baltimore has a moderate cost of living, lower than nearby Washington DC. The city offers competitive salaries, particularly in healthcare and cybersecurity, with more affordable housing than the capital."
+  },
+  "sacramento": {
+    "overview": "Sacramento is California's state capital with a large government workforce, along with growing technology and healthcare sectors. The city offers a more affordable alternative to the Bay Area while remaining within California's economic ecosystem.",
+    "top_industries": [
+      "Government",
+      "Healthcare",
+      "Technology",
+      "Agriculture",
+      "Education"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Sacramento has a moderate cost of living for California, significantly lower than San Francisco or Los Angeles. It offers good value for workers who want California living at a lower price point."
+  },
+  "kansas-city": {
+    "overview": "Kansas City spans two states and offers a diversified economy with strengths in agriculture, transportation, and an emerging technology sector. The metro area has a growing startup scene and several Fortune 500 companies.",
+    "top_industries": [
+      "Agriculture & Food Processing",
+      "Transportation",
+      "Technology",
+      "Financial Services",
+      "Healthcare"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "Kansas City has a low cost of living with very affordable housing. The city offers strong purchasing power and a high quality of life relative to its costs."
+  },
+  "cleveland": {
+    "overview": "Cleveland has a healthcare-driven economy, anchored by the Cleveland Clinic and University Hospitals. The city also has strengths in manufacturing, financial services, and a growing technology sector.",
+    "top_industries": [
+      "Healthcare",
+      "Manufacturing",
+      "Financial Services",
+      "Technology",
+      "Education"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "Cleveland has one of the lowest costs of living among major metros, with extremely affordable housing. Healthcare salaries in particular offer exceptional purchasing power."
+  },
+  "cincinnati": {
+    "overview": "Cincinnati is home to several Fortune 500 companies, including Procter & Gamble and Kroger. The city has a strong consumer goods, healthcare, and financial services economy with a growing tech presence.",
+    "top_industries": [
+      "Consumer Goods",
+      "Healthcare",
+      "Financial Services",
+      "Manufacturing",
+      "Technology"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "Cincinnati has a low cost of living with affordable housing and a strong job market. Corporate headquarters provide competitive salaries with significantly lower living costs than coastal cities."
+  },
+  "milwaukee": {
+    "overview": "Milwaukee has a strong manufacturing heritage alongside growing healthcare, finance, and technology sectors. The city offers a high quality of life with access to Lake Michigan and a vibrant cultural scene.",
+    "top_industries": [
+      "Manufacturing",
+      "Healthcare",
+      "Financial Services",
+      "Food & Beverage",
+      "Technology"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "Milwaukee has a low cost of living with affordable housing. The city provides good salaries relative to costs, especially in manufacturing and healthcare."
+  },
+  "jacksonville": {
+    "overview": "Jacksonville is Florida's largest city by area, with a diversified economy spanning logistics, financial services, healthcare, and military installations. The city's port is one of the busiest on the East Coast.",
+    "top_industries": [
+      "Logistics & Transportation",
+      "Financial Services",
+      "Healthcare",
+      "Military",
+      "Insurance"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "Jacksonville has a low cost of living with affordable housing and no state income tax. The combination makes it one of the highest purchasing-power metros in the Southeast."
+  },
+  "richmond": {
+    "overview": "Richmond is Virginia's capital with a diversified economy including government, financial services, healthcare, and a growing technology sector. The city blends historic charm with modern economic development.",
+    "top_industries": [
+      "Government",
+      "Financial Services",
+      "Healthcare",
+      "Technology",
+      "Manufacturing"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Richmond has a moderate cost of living with reasonably affordable housing. The city offers a good balance between salary levels and living expenses."
+  },
+  "oklahoma-city": {
+    "overview": "Oklahoma City's economy is centered on energy, aerospace, and government, with a growing healthcare and technology presence. The city offers one of the lowest costs of living among US metros.",
+    "top_industries": [
+      "Energy",
+      "Aerospace",
+      "Government",
+      "Healthcare",
+      "Agriculture"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "Oklahoma City has one of the lowest costs of living in the country, with very affordable housing. Salaries provide excellent purchasing power."
+  },
+  "memphis": {
+    "overview": "Memphis is a major logistics hub, home to FedEx's world headquarters. The city's economy also includes healthcare, manufacturing, and a significant agricultural sector.",
+    "top_industries": [
+      "Logistics & Shipping",
+      "Healthcare",
+      "Manufacturing",
+      "Agriculture",
+      "Tourism"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "Memphis has a low cost of living with some of the most affordable housing among major US metros. No state income tax on wages boosts purchasing power."
+  },
+  "louisville": {
+    "overview": "Louisville has a diversified economy with strengths in healthcare, logistics, manufacturing, and the bourbon industry. UPS Worldport, the company's global air hub, makes Louisville a major logistics center.",
+    "top_industries": [
+      "Healthcare",
+      "Logistics & Shipping",
+      "Manufacturing",
+      "Bourbon & Spirits",
+      "Automotive"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "Louisville has a low cost of living with affordable housing and reasonable taxes. The city offers good purchasing power for a mid-sized metro."
+  },
+  "new-orleans": {
+    "overview": "New Orleans has a unique economy driven by tourism, energy, port operations, and a distinctive cultural sector. The city is rebuilding and diversifying its economy, with growing technology and creative industry sectors.",
+    "top_industries": [
+      "Tourism & Hospitality",
+      "Energy",
+      "Port Operations",
+      "Healthcare",
+      "Film & Media"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "New Orleans has a low cost of living with relatively affordable housing. Louisiana has a moderate state income tax, but overall living costs are well below the national average for a major city."
+  },
+  "hartford": {
+    "overview": "Hartford is the insurance capital of America, home to numerous major insurance companies. The metro also has strengths in aerospace manufacturing, healthcare, and financial services.",
+    "top_industries": [
+      "Insurance",
+      "Aerospace Manufacturing",
+      "Healthcare",
+      "Financial Services",
+      "Education"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Hartford has a moderate cost of living, lower than nearby Boston or New York. The insurance industry provides stable, well-paying employment in a reasonably affordable market."
+  },
+  "buffalo": {
+    "overview": "Buffalo's economy is diversifying from its manufacturing roots, with growth in healthcare, education, and professional services. The city offers an affordable cost of living near the Canadian border.",
+    "top_industries": [
+      "Healthcare",
+      "Education",
+      "Manufacturing",
+      "Financial Services",
+      "Tourism"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "Buffalo has a low cost of living with very affordable housing. The city offers strong purchasing power, though New York state taxes can offset some savings."
+  },
+  "birmingham": {
+    "overview": "Birmingham is Alabama's largest city with a strong healthcare and financial services economy. The city is home to the University of Alabama at Birmingham, a major medical research institution and employer.",
+    "top_industries": [
+      "Healthcare",
+      "Financial Services",
+      "Manufacturing",
+      "Construction",
+      "Education"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "Birmingham has one of the lowest costs of living among US metros, with very affordable housing and low overall expenses. Healthcare salaries offer particularly strong purchasing power."
+  },
+  "tucson": {
+    "overview": "Tucson's economy includes aerospace, defense, mining, and a significant higher education sector centered around the University of Arizona. The city offers an affordable alternative to Phoenix.",
+    "top_industries": [
+      "Aerospace & Defense",
+      "Education",
+      "Healthcare",
+      "Mining",
+      "Tourism"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "Tucson has a low cost of living with affordable housing and reasonable overall expenses. The city offers good purchasing power, particularly for defense and education sector workers."
+  },
+  "honolulu": {
+    "overview": "Honolulu's economy is driven by tourism, military spending, and government services. The unique island location creates both opportunities and challenges, with high living costs but a distinctive quality of life.",
+    "top_industries": [
+      "Tourism & Hospitality",
+      "Military & Defense",
+      "Government",
+      "Healthcare",
+      "Construction"
+    ],
+    "cost_of_living": "high",
+    "cost_of_living_detail": "Honolulu has a very high cost of living, driven by expensive housing and higher prices for goods that must be imported. Salaries are above national averages but may not fully compensate for the elevated costs."
+  },
+  "anchorage": {
+    "overview": "Anchorage is Alaska's economic center, with an economy driven by oil and gas, government, healthcare, and tourism. The city offers unique opportunities in resource extraction and remote area services.",
+    "top_industries": [
+      "Oil & Gas",
+      "Government",
+      "Healthcare",
+      "Tourism",
+      "Transportation"
+    ],
+    "cost_of_living": "high",
+    "cost_of_living_detail": "Anchorage has a high cost of living due to the remote location and higher prices for goods and services. However, Alaska has no state income or sales tax, and the Permanent Fund Dividend provides an annual payment to residents."
+  },
+  "toronto": {
+    "overview": "Toronto is Canada's largest city and financial capital, with a diverse economy spanning finance, technology, film, and healthcare. The city has become one of North America's fastest-growing tech hubs and attracts talent from around the world.",
+    "top_industries": [
+      "Financial Services",
+      "Technology",
+      "Film & Television",
+      "Healthcare",
+      "Mining & Resources"
+    ],
+    "cost_of_living": "high",
+    "cost_of_living_detail": "Toronto has one of the highest costs of living in Canada, driven primarily by housing costs. Salaries are competitive for Canada, though generally lower than comparable US metros when adjusted for exchange rates."
+  },
+  "vancouver": {
+    "overview": "Vancouver has a diverse economy with strengths in technology, film production, natural resources, and tourism. The city's quality of life and Pacific Rim connections make it a gateway for international business.",
+    "top_industries": [
+      "Technology",
+      "Film & Television",
+      "Natural Resources",
+      "Tourism",
+      "Real Estate"
+    ],
+    "cost_of_living": "high",
+    "cost_of_living_detail": "Vancouver has the highest housing costs in Canada and one of the highest in North America. Salaries may not fully compensate for the extreme cost of real estate."
+  },
+  "montreal": {
+    "overview": "Montreal is a major cultural and economic hub with strengths in aerospace, AI research, video game development, and pharmaceuticals. The city benefits from a lower cost of living than Toronto and Vancouver.",
+    "top_industries": [
+      "Aerospace",
+      "AI & Technology",
+      "Video Games",
+      "Pharmaceuticals",
+      "Financial Services"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Montreal has a moderate cost of living by Canadian major city standards, with more affordable housing than Toronto or Vancouver. Quebec's higher taxes are offset by lower living costs."
+  },
+  "ottawa": {
+    "overview": "Ottawa is Canada's national capital with a large federal government workforce. The city also has a significant technology sector, particularly in telecommunications and software, anchored by the Kanata tech park.",
+    "top_industries": [
+      "Federal Government",
+      "Technology",
+      "Healthcare",
+      "Education",
+      "Defense"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Ottawa has a moderate cost of living with more affordable housing than Toronto. Government salaries are stable and competitive, with strong benefits packages."
+  },
+  "calgary": {
+    "overview": "Calgary is the hub of Canada's energy sector, home to major oil and gas companies. The city also has a growing technology sector and offers some of the highest average salaries in Canada.",
+    "top_industries": [
+      "Oil & Gas",
+      "Technology",
+      "Financial Services",
+      "Agriculture",
+      "Transportation"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Calgary has a moderate cost of living with no provincial sales tax in Alberta. Energy sector salaries are among the highest in Canada, offering strong purchasing power."
+  },
+  "edmonton": {
+    "overview": "Edmonton is Alberta's capital and a major center for oil sands operations, government services, and education. The University of Alberta is a significant employer and research institution.",
+    "top_industries": [
+      "Oil & Gas",
+      "Government",
+      "Education",
+      "Healthcare",
+      "Construction"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Edmonton has a moderate cost of living with affordable housing by major Canadian city standards. No provincial sales tax in Alberta provides additional savings for residents."
+  },
+  "winnipeg": {
+    "overview": "Winnipeg has a diversified economy including manufacturing, agriculture, financial services, and government. The city is a major transportation hub connecting eastern and western Canada.",
+    "top_industries": [
+      "Manufacturing",
+      "Agriculture",
+      "Financial Services",
+      "Government",
+      "Transportation"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "Winnipeg has one of the lowest costs of living among major Canadian cities, with very affordable housing. Salaries offer strong purchasing power despite being lower than in Toronto or Vancouver."
+  },
+  "quebec-city": {
+    "overview": "Quebec City is the provincial capital of Quebec, with a primarily French-speaking economy centered on government, technology, insurance, and tourism. The historic city attracts millions of visitors annually.",
+    "top_industries": [
+      "Government",
+      "Technology",
+      "Insurance",
+      "Tourism",
+      "Healthcare"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "Quebec City has a low cost of living with very affordable housing. While salaries are generally lower than in Montreal or Toronto, the purchasing power is strong due to low living costs."
+  },
+  "hamilton": {
+    "overview": "Hamilton is an industrial city near Toronto that has been diversifying its economy from steel manufacturing into healthcare, education, and technology. Its proximity to Toronto offers additional job market access.",
+    "top_industries": [
+      "Healthcare",
+      "Manufacturing",
+      "Education",
+      "Technology",
+      "Logistics"
+    ],
+    "cost_of_living": "moderate",
+    "cost_of_living_detail": "Hamilton has a moderate cost of living, lower than nearby Toronto. The city has become popular with Toronto commuters seeking more affordable housing while accessing the larger metro's job market."
+  },
+  "halifax": {
+    "overview": "Halifax is the economic hub of Atlantic Canada, with strengths in government, military, education, and ocean technology. The city offers a lower cost of living than most Canadian metros.",
+    "top_industries": [
+      "Government & Military",
+      "Education",
+      "Ocean Technology",
+      "Healthcare",
+      "Tourism"
+    ],
+    "cost_of_living": "low",
+    "cost_of_living_detail": "Halifax has a low cost of living for a major Canadian city, with affordable housing and reasonable overall expenses. The city offers good value for workers in government and education sectors."
+  }
+}
