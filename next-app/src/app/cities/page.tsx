@@ -21,16 +21,16 @@ export default function CitiesPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-2">Browse Cities</h1>
-      <p className="text-gray-900 mb-8">Salary data across {cities.length} US metro areas</p>
+      <p className="text-black mb-8">Salary data across {cities.length} US metro areas</p>
 
       <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-        <table className="w-full text-sm">
+        <table className="w-full text-sm text-black">
           <thead>
             <tr className="border-b border-gray-200 bg-gray-50">
-              <th className="text-left py-3 px-4 font-medium text-gray-900">City</th>
-              <th className="text-right py-3 px-4 font-medium text-gray-900">Avg Median Salary</th>
-              <th className="text-left py-3 px-4 font-medium text-gray-900">Top Paying Job</th>
-              <th className="text-right py-3 px-4 font-medium text-gray-900">Jobs Tracked</th>
+              <th className="text-left py-3 px-4 font-medium text-black">City</th>
+              <th className="text-right py-3 px-4 font-medium text-black">Avg Median Salary</th>
+              <th className="text-left py-3 px-4 font-medium text-black">Top Paying Job</th>
+              <th className="text-right py-3 px-4 font-medium text-black">Jobs Tracked</th>
             </tr>
           </thead>
           <tbody>
@@ -44,10 +44,10 @@ export default function CitiesPage() {
                 <td className="text-right py-3 px-4 font-medium">
                   {formatSalary(city.avgMedian)}
                 </td>
-                <td className="py-3 px-4 text-gray-900">
+                <td className="py-3 px-4 text-black">
                   {city.topJob}
                 </td>
-                <td className="text-right py-3 px-4 text-gray-900">
+                <td className="text-right py-3 px-4 text-black">
                   {city.jobCount}
                 </td>
               </tr>

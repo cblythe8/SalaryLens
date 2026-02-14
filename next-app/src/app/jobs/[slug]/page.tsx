@@ -49,34 +49,34 @@ export default async function JobPage({ params }: PageProps) {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <nav className="text-sm text-gray-900 mb-6">
+      <nav className="text-sm text-black mb-6">
         <Link href="/" className="hover:text-blue-600">Home</Link>
         {" / "}
         <Link href="/jobs" className="hover:text-blue-600">Jobs</Link>
         {" / "}
-        <span className="text-gray-900">{name}</span>
+        <span className="text-black">{name}</span>
       </nav>
 
       <h1 className="text-3xl md:text-4xl font-bold mb-2">
         {name} Salary
       </h1>
-      <p className="text-gray-900 mb-8">
+      <p className="text-black mb-8">
         Salary data across {records.length} metro areas in the US &amp; Canada
       </p>
 
       {/* Summary Stats */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
         <div className="bg-white rounded-lg border border-gray-200 p-4">
-          <p className="text-sm text-gray-900">Avg Median Salary</p>
+          <p className="text-sm text-black">Avg Median Salary</p>
           <p className="text-2xl font-bold text-blue-600">{formatSalary(avgMedian)}</p>
         </div>
         <div className="bg-white rounded-lg border border-gray-200 p-4">
-          <p className="text-sm text-gray-900">Highest Paying City</p>
+          <p className="text-sm text-black">Highest Paying City</p>
           <p className="text-lg font-bold">{sorted[0].city_short}</p>
-          <p className="text-sm text-gray-900">{formatSalary(sorted[0].median_annual)}</p>
+          <p className="text-sm text-black">{formatSalary(sorted[0].median_annual)}</p>
         </div>
         <div className="bg-white rounded-lg border border-gray-200 p-4">
-          <p className="text-sm text-gray-900">Total Employed</p>
+          <p className="text-sm text-black">Total Employed</p>
           <p className="text-2xl font-bold">{formatNumber(totalEmployment)}</p>
         </div>
       </div>
@@ -85,9 +85,9 @@ export default async function JobPage({ params }: PageProps) {
       {content && (
         <div className="bg-white rounded-lg border border-gray-200 p-6 mb-10">
           <h2 className="text-xl font-bold mb-3">What Do {name} Do?</h2>
-          <p className="text-gray-900 leading-relaxed">{content.description}</p>
+          <p className="text-black leading-relaxed">{content.description}</p>
           {content.work_environment && (
-            <p className="text-gray-900 mt-3 text-sm">{content.work_environment}</p>
+            <p className="text-black mt-3 text-sm">{content.work_environment}</p>
           )}
         </div>
       )}
@@ -112,11 +112,11 @@ export default async function JobPage({ params }: PageProps) {
           <div className="bg-white rounded-lg border border-gray-200 p-6">
             <h2 className="text-lg font-bold mb-2">Education Requirements</h2>
             <p className="text-sm font-medium text-blue-600 mb-2">{content.education}</p>
-            <p className="text-gray-900 text-sm">{content.education_detail}</p>
+            <p className="text-black text-sm">{content.education_detail}</p>
           </div>
           <div className="bg-white rounded-lg border border-gray-200 p-6">
             <h2 className="text-lg font-bold mb-2">Career Outlook</h2>
-            <p className="text-gray-900 text-sm">{content.career_outlook}</p>
+            <p className="text-black text-sm">{content.career_outlook}</p>
           </div>
         </div>
       )}
@@ -129,7 +129,7 @@ export default async function JobPage({ params }: PageProps) {
             {content.salary_tips.map((tip, i) => (
               <li key={i} className="flex items-start gap-3">
                 <span className="text-blue-500 font-bold mt-0.5">{i + 1}.</span>
-                <span className="text-gray-900">{tip}</span>
+                <span className="text-black">{tip}</span>
               </li>
             ))}
           </ul>
@@ -140,14 +140,14 @@ export default async function JobPage({ params }: PageProps) {
       <div className="bg-white rounded-lg border border-gray-200 p-6">
         <h2 className="text-xl font-bold mb-4">{name} Salary by City</h2>
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="w-full text-sm text-black">
             <thead>
               <tr className="border-b border-gray-200">
-                <th className="text-left py-3 font-medium text-gray-900">City</th>
-                <th className="text-right py-3 font-medium text-gray-900">Median</th>
-                <th className="text-right py-3 font-medium text-gray-900">Average</th>
-                <th className="text-right py-3 font-medium text-gray-900">Range (10th-90th)</th>
-                <th className="text-right py-3 font-medium text-gray-900">Employed</th>
+                <th className="text-left py-3 font-medium text-black">City</th>
+                <th className="text-right py-3 font-medium text-black">Median</th>
+                <th className="text-right py-3 font-medium text-black">Average</th>
+                <th className="text-right py-3 font-medium text-black">Range (10th-90th)</th>
+                <th className="text-right py-3 font-medium text-black">Employed</th>
               </tr>
             </thead>
             <tbody>
@@ -166,13 +166,13 @@ export default async function JobPage({ params }: PageProps) {
                     <td className="text-right py-3 font-medium">
                       {formatSalary(r.median_annual, r.currency)}
                     </td>
-                    <td className="text-right py-3 text-gray-900">
+                    <td className="text-right py-3 text-black">
                       {formatSalary(r.mean_annual, r.currency)}
                     </td>
-                    <td className="text-right py-3 text-gray-900">
+                    <td className="text-right py-3 text-black">
                       {formatSalary(r.pct10_annual, r.currency)} - {formatSalary(r.pct90_annual, r.currency)}
                     </td>
-                    <td className="text-right py-3 text-gray-900">
+                    <td className="text-right py-3 text-black">
                       {formatNumber(r.employment)}
                     </td>
                   </tr>

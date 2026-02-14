@@ -49,21 +49,21 @@ export default async function SalaryPage({ params }: PageProps) {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       {/* Breadcrumb */}
-      <nav className="text-sm text-gray-900 mb-6">
+      <nav className="text-sm text-black mb-6">
         <Link href="/" className="hover:text-blue-600">Home</Link>
         {" / "}
         <Link href={`/jobs/${record.occ_slug}`} className="hover:text-blue-600">
           {record.occ_name}
         </Link>
         {" / "}
-        <span className="text-gray-900">{record.city_short}</span>
+        <span className="text-black">{record.city_short}</span>
       </nav>
 
       {/* Title */}
       <h1 className="text-3xl md:text-4xl font-bold mb-2">
         {record.occ_name} Salary in {record.city_short}, {record.state}
       </h1>
-      <p className="text-gray-900 mb-8">
+      <p className="text-black mb-8">
         Updated 2024 &middot; Source: {record.country === "CA" ? "Statistics Canada" : "U.S. Bureau of Labor Statistics"}
         {record.currency === "CAD" && <span className="ml-2 text-xs bg-gray-100 px-2 py-0.5 rounded">CAD</span>}
       </p>
@@ -71,23 +71,23 @@ export default async function SalaryPage({ params }: PageProps) {
       {/* Key Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
         <div className="bg-white rounded-lg border border-gray-200 p-4">
-          <p className="text-sm text-gray-900">Median Salary</p>
+          <p className="text-sm text-black">Median Salary</p>
           <p className="text-2xl font-bold text-blue-600">
             {formatSalary(record.median_annual, record.currency)}
           </p>
         </div>
         <div className="bg-white rounded-lg border border-gray-200 p-4">
-          <p className="text-sm text-gray-900">Average Salary</p>
+          <p className="text-sm text-black">Average Salary</p>
           <p className="text-2xl font-bold">{formatSalary(record.mean_annual, record.currency)}</p>
         </div>
         <div className="bg-white rounded-lg border border-gray-200 p-4">
-          <p className="text-sm text-gray-900">Salary Range</p>
+          <p className="text-sm text-black">Salary Range</p>
           <p className="text-lg font-semibold">
             {formatSalary(record.pct10_annual, record.currency)} - {formatSalary(record.pct90_annual, record.currency)}
           </p>
         </div>
         <div className="bg-white rounded-lg border border-gray-200 p-4">
-          <p className="text-sm text-gray-900">Employed</p>
+          <p className="text-sm text-black">Employed</p>
           <p className="text-2xl font-bold">{formatNumber(record.employment)}</p>
         </div>
       </div>
@@ -104,7 +104,7 @@ export default async function SalaryPage({ params }: PageProps) {
             { label: "Bottom 10%", value: record.pct10_annual, color: "bg-red-400" },
           ].map((item) => (
             <div key={item.label} className="flex items-center gap-4">
-              <span className="text-sm text-gray-900 w-36 text-right">{item.label}</span>
+              <span className="text-sm text-black w-36 text-right">{item.label}</span>
               <div className="flex-1 bg-gray-100 rounded-full h-6 relative">
                 <div
                   className={`${item.color} h-6 rounded-full flex items-center justify-end pr-2`}
@@ -118,7 +118,7 @@ export default async function SalaryPage({ params }: PageProps) {
             </div>
           ))}
         </div>
-        <p className="text-xs text-gray-900 mt-4">
+        <p className="text-xs text-black mt-4">
           10th to 90th percentile range. Half of all {record.occ_name.toLowerCase()} earn
           between {formatSalary(record.pct25_annual, record.currency)} and {formatSalary(record.pct75_annual, record.currency)}.
         </p>
@@ -130,9 +130,9 @@ export default async function SalaryPage({ params }: PageProps) {
           <h2 className="text-xl font-bold mb-3">
             About {record.occ_name} in {record.city_short}
           </h2>
-          <p className="text-gray-900 leading-relaxed mb-4">{occContent.description}</p>
+          <p className="text-black leading-relaxed mb-4">{occContent.description}</p>
           {cityContentData && (
-            <p className="text-gray-900 text-sm">
+            <p className="text-black text-sm">
               In {record.city_short}, {record.occ_name.toLowerCase()} benefit from {
                 cityContentData.cost_of_living === "high"
                   ? "higher salaries that reflect the area's elevated cost of living"
@@ -162,7 +162,7 @@ export default async function SalaryPage({ params }: PageProps) {
           <div className="bg-white rounded-lg border border-gray-200 p-6">
             <h3 className="text-lg font-bold mb-2">Education</h3>
             <p className="text-blue-600 text-sm font-medium mb-1">{occContent.education}</p>
-            <p className="text-gray-900 text-xs">{occContent.education_detail}</p>
+            <p className="text-black text-xs">{occContent.education_detail}</p>
           </div>
         </div>
       )}
@@ -175,7 +175,7 @@ export default async function SalaryPage({ params }: PageProps) {
             {occContent.salary_tips.map((tip, i) => (
               <div key={i} className="flex items-start gap-2">
                 <span className="text-blue-500 font-bold text-sm mt-0.5">{i + 1}.</span>
-                <span className="text-gray-900 text-sm">{tip}</span>
+                <span className="text-black text-sm">{tip}</span>
               </div>
             ))}
           </div>
@@ -189,13 +189,13 @@ export default async function SalaryPage({ params }: PageProps) {
             {record.occ_name} Salary in Other Cities
           </h2>
           <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+            <table className="w-full text-sm text-black">
               <thead>
                 <tr className="border-b border-gray-200">
-                  <th className="text-left py-3 font-medium text-gray-900">City</th>
-                  <th className="text-right py-3 font-medium text-gray-900">Median</th>
-                  <th className="text-right py-3 font-medium text-gray-900">Range</th>
-                  <th className="text-right py-3 font-medium text-gray-900">vs {record.city_short}</th>
+                  <th className="text-left py-3 font-medium text-black">City</th>
+                  <th className="text-right py-3 font-medium text-black">Median</th>
+                  <th className="text-right py-3 font-medium text-black">Range</th>
+                  <th className="text-right py-3 font-medium text-black">vs {record.city_short}</th>
                 </tr>
               </thead>
               <tbody>
@@ -216,7 +216,7 @@ export default async function SalaryPage({ params }: PageProps) {
                       <td className="text-right py-3 font-medium">
                         {formatSalary(city.median_annual, city.currency)}
                       </td>
-                      <td className="text-right py-3 text-gray-900">
+                      <td className="text-right py-3 text-black">
                         {formatSalary(city.pct10_annual, city.currency)} - {formatSalary(city.pct90_annual, city.currency)}
                       </td>
                       <td className={`text-right py-3 font-medium ${diff > 0 ? "text-green-600" : "text-red-600"}`}>

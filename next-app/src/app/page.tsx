@@ -64,17 +64,17 @@ export default function Home() {
                 href={`/salaries/${slug}`}
                 className="bg-white rounded-lg border border-gray-200 p-5 hover:shadow-md transition-shadow"
               >
-                <h3 className="font-semibold text-gray-900">{record.occ_name}</h3>
-                <p className="text-sm text-gray-900 mb-3">
+                <h3 className="font-semibold text-black">{record.occ_name}</h3>
+                <p className="text-sm text-black mb-3">
                   {record.city_short}, {record.state}
                 </p>
                 <div className="flex items-baseline gap-2">
                   <span className="text-2xl font-bold text-blue-600">
                     {formatSalary(record.median_annual, record.currency)}
                   </span>
-                  <span className="text-sm text-gray-900">median</span>
+                  <span className="text-sm text-black">median</span>
                 </div>
-                <div className="mt-2 text-xs text-gray-900">
+                <div className="mt-2 text-xs text-black">
                   Range: {formatSalary(record.pct10_annual, record.currency)} &ndash;{" "}
                   {formatSalary(record.pct90_annual, record.currency)}
                 </div>
@@ -92,7 +92,7 @@ export default function Home() {
             <Link
               key={occ.slug}
               href={`/jobs/${occ.slug}`}
-              className="bg-white rounded-lg border border-gray-200 px-4 py-3 text-sm text-gray-900 hover:text-blue-600 hover:border-blue-300 hover:shadow-sm transition-all"
+              className="bg-white rounded-lg border border-gray-200 px-4 py-3 text-sm text-black hover:text-blue-600 hover:border-blue-300 hover:shadow-sm transition-all"
             >
               {occ.name}
             </Link>
@@ -108,7 +108,7 @@ export default function Home() {
             <Link
               key={city.slug}
               href={`/cities/${city.slug}`}
-              className="bg-white rounded-lg border border-gray-200 px-4 py-3 text-sm text-gray-900 hover:text-blue-600 hover:border-blue-300 hover:shadow-sm transition-all"
+              className="bg-white rounded-lg border border-gray-200 px-4 py-3 text-sm text-black hover:text-blue-600 hover:border-blue-300 hover:shadow-sm transition-all"
             >
               {city.name}, {city.state}
             </Link>

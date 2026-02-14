@@ -115,7 +115,7 @@ export default function SearchBar({
     <div className={`relative ${className}`}>
       <div className="relative">
         <svg
-          className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-900"
+          className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-black"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -138,7 +138,7 @@ export default function SearchBar({
           onFocus={() => setIsOpen(true)}
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
-          className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none text-gray-900 bg-white"
+          className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none text-black bg-white"
         />
         {isLoading && (
           <div className="absolute right-3 top-1/2 -translate-y-1/2">
@@ -165,8 +165,8 @@ export default function SearchBar({
               } ${i > 0 ? "border-t border-gray-100" : ""}`}
             >
               <div>
-                <p className="font-medium text-gray-900 text-sm">{item.label}</p>
-                <p className="text-xs text-gray-900">{item.sublabel}</p>
+                <p className="font-medium text-black text-sm">{item.label}</p>
+                <p className="text-xs text-black">{item.sublabel}</p>
               </div>
               <span
                 className={`text-xs px-2 py-0.5 rounded-full font-medium ${typeColors[item.type]}`}
@@ -181,7 +181,7 @@ export default function SearchBar({
       {isOpen && query.length >= 2 && !isLoading && results.length === 0 && (
         <div
           ref={dropdownRef}
-          className="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg border border-gray-200 shadow-lg z-50 p-4 text-center text-sm text-gray-900"
+          className="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg border border-gray-200 shadow-lg z-50 p-4 text-center text-sm text-black"
         >
           No results found for &ldquo;{query}&rdquo;
         </div>

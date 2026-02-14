@@ -21,7 +21,7 @@ export default function SalariesPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-2">Salary Data</h1>
-      <p className="text-gray-900 mb-8">
+      <p className="text-black mb-8">
         {occupations.length} occupations across {cities.length} cities in the US
         and Canada
       </p>
@@ -30,19 +30,19 @@ export default function SalariesPage() {
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-4">Top 50 Highest Paying</h2>
         <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-          <table className="w-full text-sm">
+          <table className="w-full text-sm text-black">
             <thead>
               <tr className="border-b border-gray-200 bg-gray-50">
-                <th className="text-left py-3 px-4 font-medium text-gray-900">
+                <th className="text-left py-3 px-4 font-medium text-black">
                   Job Title
                 </th>
-                <th className="text-left py-3 px-4 font-medium text-gray-900">
+                <th className="text-left py-3 px-4 font-medium text-black">
                   City
                 </th>
-                <th className="text-right py-3 px-4 font-medium text-gray-900">
+                <th className="text-right py-3 px-4 font-medium text-black">
                   Median
                 </th>
-                <th className="text-right py-3 px-4 font-medium text-gray-900">
+                <th className="text-right py-3 px-4 font-medium text-black">
                   Range
                 </th>
               </tr>
@@ -66,13 +66,13 @@ export default function SalariesPage() {
                         {r.occ_name}
                       </Link>
                     </td>
-                    <td className="py-3 px-4 text-gray-900">
+                    <td className="py-3 px-4 text-black">
                       {r.city_short}, {r.state}
                     </td>
                     <td className="text-right py-3 px-4 font-medium">
                       {formatSalary(r.median_annual, r.currency)}
                     </td>
-                    <td className="text-right py-3 px-4 text-gray-900">
+                    <td className="text-right py-3 px-4 text-black">
                       {formatSalary(r.pct10_annual, r.currency)} &ndash;{" "}
                       {formatSalary(r.pct90_annual, r.currency)}
                     </td>
@@ -92,7 +92,7 @@ export default function SalariesPage() {
             <Link
               key={occ.slug}
               href={`/jobs/${occ.slug}`}
-              className="text-sm text-gray-900 hover:text-blue-600 hover:underline py-1"
+              className="text-sm text-black hover:text-blue-600 hover:underline py-1"
             >
               {occ.name}
             </Link>
@@ -108,7 +108,7 @@ export default function SalariesPage() {
             <Link
               key={city.slug}
               href={`/cities/${city.slug}`}
-              className="text-sm text-gray-900 hover:text-blue-600 hover:underline py-1"
+              className="text-sm text-black hover:text-blue-600 hover:underline py-1"
             >
               {city.name}, {city.state}
             </Link>
