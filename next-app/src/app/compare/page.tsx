@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Metadata } from "next";
 import { getUniqueCities, getSalariesByCity, formatSalary } from "@/lib/data";
+import CityCompare from "@/components/CityCompare";
 
 export const metadata: Metadata = {
   title: "Compare City Salaries - Side by Side",
@@ -44,6 +45,9 @@ export default function ComparePage() {
       <p className="text-black mb-8">
         See how salaries stack up across different cities
       </p>
+
+      {/* Interactive Comparison Tool */}
+      <CityCompare cities={cities} />
 
       {/* Popular Comparisons */}
       <div className="mb-10">

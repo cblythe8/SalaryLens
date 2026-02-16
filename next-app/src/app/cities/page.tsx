@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { Metadata } from "next";
-import { getUniqueCities, getSalariesByCity, formatSalary } from "@/lib/data";
+import { getUniqueCities, getSalariesByCity } from "@/lib/data";
+import CitiesTable from "@/components/CitiesTable";
 
 export const metadata: Metadata = {
   title: "Browse Cities - Salary Data by Location",
@@ -23,38 +23,7 @@ export default function CitiesPage() {
       <h1 className="text-3xl font-bold mb-2">Browse Cities</h1>
       <p className="text-black mb-8">Salary data across {cities.length} US metro areas</p>
 
-      <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-        <table className="w-full text-sm text-black">
-          <thead>
-            <tr className="border-b border-gray-200 bg-gray-50">
-              <th className="text-left py-3 px-4 font-medium text-black">City</th>
-              <th className="text-right py-3 px-4 font-medium text-black">Avg Median Salary</th>
-              <th className="text-left py-3 px-4 font-medium text-black">Top Paying Job</th>
-              <th className="text-right py-3 px-4 font-medium text-black">Jobs Tracked</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cityWithStats.map((city) => (
-              <tr key={city.slug} className="border-b border-gray-100 hover:bg-gray-50">
-                <td className="py-3 px-4">
-                  <Link href={`/cities/${city.slug}`} className="text-blue-600 hover:underline font-medium">
-                    {city.name}, {city.state}
-                  </Link>
-                </td>
-                <td className="text-right py-3 px-4 font-medium">
-                  {formatSalary(city.avgMedian)}
-                </td>
-                <td className="py-3 px-4 text-black">
-                  {city.topJob}
-                </td>
-                <td className="text-right py-3 px-4 text-black">
-                  {city.jobCount}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <CitiesTable data={cityWithStats} />
     </div>
   );
 }

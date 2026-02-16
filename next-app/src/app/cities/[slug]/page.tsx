@@ -6,8 +6,8 @@ import {
   getSalariesByCity,
   getCityContent,
   formatSalary,
-  formatNumber,
 } from "@/lib/data";
+import CityJobsTable from "@/components/CityJobsTable";
 
 export const dynamic = "force-dynamic";
 
@@ -117,61 +117,7 @@ export default async function CityPage({ params }: PageProps) {
       )}
 
       {/* All Jobs Table */}
-      <div className="bg-white rounded-lg border border-gray-200 p-6">
-        <h2 className="text-xl font-bold mb-4">All Salaries in {city.city_short}</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm text-black">
-            <thead>
-              <tr className="border-b border-gray-200">
-                <th className="text-left py-3 pr-4 font-medium text-black">Job Title</th>
-                <th className="text-right py-3 px-3 font-medium text-black">Median</th>
-                <th className="text-right py-3 px-3 font-medium text-black">Range (10th-90th)</th>
-                <th className="text-right py-3 px-3 font-medium text-black">Est. Employed*</th>
-                <th className="text-right py-3 pl-3 font-medium text-black"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {sorted.map((r) => {
-                const citySlug = r.city_short.toLowerCase().replace(/\s+/g, "-");
-                return (
-                  <tr key={r.occ_code} className="border-b border-gray-100 hover:bg-gray-50">
-                    <td className="py-3 pr-4">
-                      <Link
-                        href={`/salaries/${r.occ_slug}-in-${citySlug}`}
-                        className="text-blue-600 hover:underline"
-                      >
-                        {r.occ_name}
-                      </Link>
-                    </td>
-                    <td className="text-right py-3 px-3 font-medium whitespace-nowrap">
-                      {formatSalary(r.median_annual, r.currency)}
-                    </td>
-                    <td className="text-right py-3 px-3 text-black whitespace-nowrap">
-                      {formatSalary(r.pct10_annual, r.currency)} - {formatSalary(r.pct90_annual, r.currency)}
-                    </td>
-                    <td className="text-right py-3 px-3 text-black whitespace-nowrap">
-                      {formatNumber(r.employment)}
-                    </td>
-                    <td className="text-right py-3 pl-3">
-                      <a
-                        href={`https://www.indeed.com/jobs?q=${encodeURIComponent(r.occ_name)}&l=${encodeURIComponent(r.city_short + ", " + r.state)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:underline text-xs whitespace-nowrap"
-                      >
-                        Apply
-                      </a>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-        <p className="text-xs text-black mt-4">
-          *Employment figures are estimates based on national occupational data distributed across metro areas. Actual local numbers may vary.
-        </p>
-      </div>
+      <CityJobsTable data={sorted} cityName={city.city_short} />
     </div>
   );
 }

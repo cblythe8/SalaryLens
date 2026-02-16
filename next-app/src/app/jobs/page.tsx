@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { Metadata } from "next";
-import { getUniqueOccupations, getSalariesByOccupation, formatSalary } from "@/lib/data";
+import { getUniqueOccupations, getSalariesByOccupation } from "@/lib/data";
+import JobsTable from "@/components/JobsTable";
 
 export const metadata: Metadata = {
   title: "Browse Jobs - Salary Data by Occupation",
@@ -22,34 +22,7 @@ export default function JobsPage() {
       <h1 className="text-3xl font-bold mb-2">Browse Jobs</h1>
       <p className="text-black mb-8">Salary data for {occupations.length} occupations</p>
 
-      <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-        <table className="w-full text-sm text-black">
-          <thead>
-            <tr className="border-b border-gray-200 bg-gray-50">
-              <th className="text-left py-3 px-4 font-medium text-black">Job Title</th>
-              <th className="text-right py-3 px-4 font-medium text-black">Avg Median Salary</th>
-              <th className="text-right py-3 px-4 font-medium text-black">Cities</th>
-            </tr>
-          </thead>
-          <tbody>
-            {occWithStats.map((occ) => (
-              <tr key={occ.slug} className="border-b border-gray-100 hover:bg-gray-50">
-                <td className="py-3 px-4">
-                  <Link href={`/jobs/${occ.slug}`} className="text-blue-600 hover:underline font-medium">
-                    {occ.name}
-                  </Link>
-                </td>
-                <td className="text-right py-3 px-4 font-medium">
-                  {formatSalary(occ.avgMedian)}
-                </td>
-                <td className="text-right py-3 px-4 text-black">
-                  {occ.cityCount}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <JobsTable data={occWithStats} />
     </div>
   );
 }
