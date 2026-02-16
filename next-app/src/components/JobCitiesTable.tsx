@@ -26,6 +26,8 @@ export default function JobCitiesTable({
 }) {
   const [filter, setFilter] = useState("");
 
+  const maxMedian = Math.max(...data.map((r) => r.median_annual));
+
   const filtered = filter
     ? data.filter((r) =>
         `${r.city_short}, ${r.state}`.toLowerCase().includes(filter.toLowerCase())
@@ -76,8 +78,16 @@ export default function JobCitiesTable({
                       {r.city_short}, {r.state}
                     </Link>
                   </td>
-                  <td className="text-right py-3 font-medium">
-                    {formatSalary(r.median_annual, r.currency)}
+                  <td className="py-3">
+                    <div className="flex items-center justify-end gap-2">
+                      <div className="hidden sm:block w-16 bg-gray-100 rounded-full h-2 overflow-hidden">
+                        <div
+                          className="h-full bg-blue-500 rounded-full"
+                          style={{ width: `${(r.median_annual / maxMedian) * 100}%` }}
+                        />
+                      </div>
+                      <span className="font-medium whitespace-nowrap">{formatSalary(r.median_annual, r.currency)}</span>
+                    </div>
                   </td>
                   <td className="text-right py-3 text-black">
                     {formatSalary(r.mean_annual, r.currency)}

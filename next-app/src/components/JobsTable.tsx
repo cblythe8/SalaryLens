@@ -14,6 +14,7 @@ interface OccStats {
 
 export default function JobsTable({ data }: { data: OccStats[] }) {
   const [filter, setFilter] = useState("");
+  const maxSalary = Math.max(...data.map((o) => o.avgMedian));
 
   const filtered = filter
     ? data.filter((occ) =>
@@ -55,8 +56,16 @@ export default function JobsTable({ data }: { data: OccStats[] }) {
                     {occ.name}
                   </Link>
                 </td>
-                <td className="text-right py-3 px-4 font-medium">
-                  {formatSalary(occ.avgMedian)}
+                <td className="py-3 px-4">
+                  <div className="flex items-center justify-end gap-2">
+                    <div className="hidden sm:block w-20 bg-gray-100 rounded-full h-2 overflow-hidden">
+                      <div
+                        className="h-full bg-blue-500 rounded-full"
+                        style={{ width: `${(occ.avgMedian / maxSalary) * 100}%` }}
+                      />
+                    </div>
+                    <span className="font-medium whitespace-nowrap">{formatSalary(occ.avgMedian)}</span>
+                  </div>
                 </td>
                 <td className="text-right py-3 px-4 text-black whitespace-nowrap">
                   {formatSalary(occ.lowMedian)} - {formatSalary(occ.highMedian)}

@@ -41,6 +41,7 @@ export default function CityJobsTable({
   });
 
   const hasFilters = filter || minSalary || maxSalary;
+  const maxMedian = Math.max(...data.map((r) => r.median_annual));
 
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-6">
@@ -119,8 +120,16 @@ export default function CityJobsTable({
                       {r.occ_name}
                     </Link>
                   </td>
-                  <td className="text-right py-3 px-3 font-medium whitespace-nowrap">
-                    {formatSalary(r.median_annual, r.currency)}
+                  <td className="py-3 px-3">
+                    <div className="flex items-center justify-end gap-2">
+                      <div className="hidden sm:block w-16 bg-gray-100 rounded-full h-2 overflow-hidden">
+                        <div
+                          className="h-full bg-blue-500 rounded-full"
+                          style={{ width: `${(r.median_annual / maxMedian) * 100}%` }}
+                        />
+                      </div>
+                      <span className="font-medium whitespace-nowrap">{formatSalary(r.median_annual, r.currency)}</span>
+                    </div>
                   </td>
                   <td className="text-right py-3 px-3 text-black whitespace-nowrap">
                     {formatSalary(r.pct10_annual, r.currency)} - {formatSalary(r.pct90_annual, r.currency)}

@@ -16,6 +16,7 @@ interface CityStats {
 
 export default function CitiesTable({ data }: { data: CityStats[] }) {
   const [filter, setFilter] = useState("");
+  const maxSalary = Math.max(...data.map((c) => c.avgMedian));
 
   const filtered = filter
     ? data.filter((city) =>
@@ -58,8 +59,16 @@ export default function CitiesTable({ data }: { data: CityStats[] }) {
                     {city.name}, {city.state}
                   </Link>
                 </td>
-                <td className="text-right py-3 px-4 font-medium">
-                  {formatSalary(city.avgMedian)}
+                <td className="py-3 px-4">
+                  <div className="flex items-center justify-end gap-2">
+                    <div className="hidden sm:block w-20 bg-gray-100 rounded-full h-2 overflow-hidden">
+                      <div
+                        className="h-full bg-blue-500 rounded-full"
+                        style={{ width: `${(city.avgMedian / maxSalary) * 100}%` }}
+                      />
+                    </div>
+                    <span className="font-medium whitespace-nowrap">{formatSalary(city.avgMedian)}</span>
+                  </div>
                 </td>
                 <td className="py-3 px-4 text-black">
                   {city.topJob}
