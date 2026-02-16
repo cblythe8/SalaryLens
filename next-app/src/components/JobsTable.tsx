@@ -8,7 +8,8 @@ interface OccStats {
   slug: string;
   name: string;
   avgMedian: number;
-  cityCount: number;
+  lowMedian: number;
+  highMedian: number;
 }
 
 export default function JobsTable({ data }: { data: OccStats[] }) {
@@ -43,7 +44,7 @@ export default function JobsTable({ data }: { data: OccStats[] }) {
             <tr className="border-b border-gray-200 bg-gray-50">
               <th className="text-left py-3 px-4 font-medium text-black">Job Title</th>
               <th className="text-right py-3 px-4 font-medium text-black">Avg Median Salary</th>
-              <th className="text-right py-3 px-4 font-medium text-black">Cities</th>
+              <th className="text-right py-3 px-4 font-medium text-black">Salary Range</th>
             </tr>
           </thead>
           <tbody>
@@ -57,8 +58,8 @@ export default function JobsTable({ data }: { data: OccStats[] }) {
                 <td className="text-right py-3 px-4 font-medium">
                   {formatSalary(occ.avgMedian)}
                 </td>
-                <td className="text-right py-3 px-4 text-black">
-                  {occ.cityCount}
+                <td className="text-right py-3 px-4 text-black whitespace-nowrap">
+                  {formatSalary(occ.lowMedian)} - {formatSalary(occ.highMedian)}
                 </td>
               </tr>
             ))}

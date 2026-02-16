@@ -9,8 +9,9 @@ interface CityStats {
   name: string;
   state: string;
   avgMedian: number;
-  jobCount: number;
   topJob: string;
+  lowMedian: number;
+  highMedian: number;
 }
 
 export default function CitiesTable({ data }: { data: CityStats[] }) {
@@ -46,7 +47,7 @@ export default function CitiesTable({ data }: { data: CityStats[] }) {
               <th className="text-left py-3 px-4 font-medium text-black">City</th>
               <th className="text-right py-3 px-4 font-medium text-black">Avg Median Salary</th>
               <th className="text-left py-3 px-4 font-medium text-black">Top Paying Job</th>
-              <th className="text-right py-3 px-4 font-medium text-black">Jobs Tracked</th>
+              <th className="text-right py-3 px-4 font-medium text-black">Salary Range</th>
             </tr>
           </thead>
           <tbody>
@@ -63,8 +64,8 @@ export default function CitiesTable({ data }: { data: CityStats[] }) {
                 <td className="py-3 px-4 text-black">
                   {city.topJob}
                 </td>
-                <td className="text-right py-3 px-4 text-black">
-                  {city.jobCount}
+                <td className="text-right py-3 px-4 text-black whitespace-nowrap">
+                  {formatSalary(city.lowMedian)} - {formatSalary(city.highMedian)}
                 </td>
               </tr>
             ))}

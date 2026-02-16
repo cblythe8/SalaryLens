@@ -12,10 +12,16 @@ export default function CitiesPage() {
 
   const cityWithStats = cities.map((city) => {
     const records = getSalariesByCity(city.slug);
-    const medians = records.map((r) => r.median_annual);
+    const medians = records.map((r) => r.median_annual).sort((a, b) => a - b);
     const avgMedian = Math.round(medians.reduce((a, b) => a + b, 0) / medians.length);
     const topJob = [...records].sort((a, b) => b.median_annual - a.median_annual)[0];
-    return { ...city, avgMedian, jobCount: records.length, topJob: topJob?.occ_name };
+    return {
+      ...city,
+      avgMedian,
+      topJob: topJob?.occ_name,
+      lowMedian: medians[0],
+      highMedian: medians[medians.length - 1],
+    };
   }).sort((a, b) => b.avgMedian - a.avgMedian);
 
   return (

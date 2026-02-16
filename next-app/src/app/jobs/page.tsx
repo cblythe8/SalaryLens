@@ -12,9 +12,14 @@ export default function JobsPage() {
 
   const occWithStats = occupations.map((occ) => {
     const records = getSalariesByOccupation(occ.slug);
-    const medians = records.map((r) => r.median_annual);
+    const medians = records.map((r) => r.median_annual).sort((a, b) => a - b);
     const avgMedian = Math.round(medians.reduce((a, b) => a + b, 0) / medians.length);
-    return { ...occ, avgMedian, cityCount: records.length };
+    return {
+      ...occ,
+      avgMedian,
+      lowMedian: medians[0],
+      highMedian: medians[medians.length - 1],
+    };
   }).sort((a, b) => b.avgMedian - a.avgMedian);
 
   return (
