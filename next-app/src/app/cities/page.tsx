@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { getUniqueCities, getSalariesByCity } from "@/lib/data";
+import { getUniqueCities, getSalariesByCity, getCityContent } from "@/lib/data";
 import CitiesTable from "@/components/CitiesTable";
 
 export const metadata: Metadata = {
@@ -14,11 +14,11 @@ export default function CitiesPage() {
     const records = getSalariesByCity(city.slug);
     const medians = records.map((r) => r.median_annual).sort((a, b) => a - b);
     const avgMedian = Math.round(medians.reduce((a, b) => a + b, 0) / medians.length);
-    const topJob = [...records].sort((a, b) => b.median_annual - a.median_annual)[0];
+    const content = getCityContent(city.slug);
     return {
       ...city,
       avgMedian,
-      topJob: topJob?.occ_name,
+      costOfLiving: content?.cost_of_living || null,
       lowMedian: medians[0],
       highMedian: medians[medians.length - 1],
     };

@@ -9,7 +9,7 @@ interface CityStats {
   name: string;
   state: string;
   avgMedian: number;
-  topJob: string;
+  costOfLiving: string | null;
   lowMedian: number;
   highMedian: number;
 }
@@ -47,7 +47,7 @@ export default function CitiesTable({ data }: { data: CityStats[] }) {
             <tr className="border-b border-gray-200 bg-gray-50">
               <th className="text-left py-3 px-4 font-medium text-black">City</th>
               <th className="text-right py-3 px-4 font-medium text-black">Avg Median Salary</th>
-              <th className="text-left py-3 px-4 font-medium text-black">Top Paying Job</th>
+              <th className="text-center py-3 px-4 font-medium text-black">Cost of Living</th>
               <th className="text-right py-3 px-4 font-medium text-black">Salary Range</th>
             </tr>
           </thead>
@@ -70,8 +70,18 @@ export default function CitiesTable({ data }: { data: CityStats[] }) {
                     <span className="font-medium whitespace-nowrap">{formatSalary(city.avgMedian)}</span>
                   </div>
                 </td>
-                <td className="py-3 px-4 text-black">
-                  {city.topJob}
+                <td className="py-3 px-4 text-center">
+                  {city.costOfLiving ? (
+                    <span className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                      city.costOfLiving === "high" ? "bg-red-100 text-red-700" :
+                      city.costOfLiving === "low" ? "bg-green-100 text-green-700" :
+                      "bg-yellow-100 text-yellow-700"
+                    }`}>
+                      {city.costOfLiving.charAt(0).toUpperCase() + city.costOfLiving.slice(1)}
+                    </span>
+                  ) : (
+                    <span className="text-black text-xs">—</span>
+                  )}
                 </td>
                 <td className="text-right py-3 px-4 text-black whitespace-nowrap">
                   {formatSalary(city.lowMedian)} - {formatSalary(city.highMedian)}
