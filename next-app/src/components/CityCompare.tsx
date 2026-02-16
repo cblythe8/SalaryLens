@@ -41,6 +41,8 @@ export default function CityCompare({ cities }: { cities: CityOption[] }) {
   const [selected, setSelected] = useState<string[]>(["", ""]);
   const [data, setData] = useState<ComparisonData | null>(null);
   const [loading, setLoading] = useState(false);
+  const [selectedJobs, setSelectedJobs] = useState<Set<string>>(new Set());
+  const [jobFilter, setJobFilter] = useState("");
 
   const canCompare = selected.filter(Boolean).length >= 2;
   const canAddMore = selected.length < 4;
@@ -77,7 +79,10 @@ export default function CityCompare({ cities }: { cities: CityOption[] }) {
     try {
       const res = await fetch(`/api/compare?cities=${slugs.join(",")}`);
       if (res.ok) {
-        setData(await res.json());
+        const result = await res.json();
+        setData(result);
+        setSelectedJobs(new Set());
+        setJobFilter("");
       }
     } catch {
       // Request failed
@@ -86,15 +91,27 @@ export default function CityCompare({ cities }: { cities: CityOption[] }) {
     }
   }, [selected]);
 
-  // Build chart data (top 10 occupations)
-  const chartData = data
-    ? data.comparisons.slice(0, 10).map((c) => {
-        const entry: Record<string, string | number> = { name: c.occName };
-        data.cities.forEach((city, i) => {
-          entry[`${city.name}, ${city.state}`] = c.salaries[i].median;
-        });
-        return entry;
-      })
+  // Filter comparisons by selected jobs (if any selected)
+  const filteredComparisons = data
+    ? selectedJobs.size > 0
+      ? data.comparisons.filter((c) => selectedJobs.has(c.occSlug))
+      : data.comparisons
+    : [];
+
+  // Build chart data (up to 10 for the chart)
+  const chartData = filteredComparisons.slice(0, 10).map((c) => {
+    const entry: Record<string, string | number> = { name: c.occName };
+    data?.cities.forEach((city, i) => {
+      entry[`${city.name}, ${city.state}`] = c.salaries[i].median;
+    });
+    return entry;
+  });
+
+  // Job options filtered by search text
+  const jobOptions = data
+    ? data.comparisons.filter((c) =>
+        jobFilter ? c.occName.toLowerCase().includes(jobFilter.toLowerCase()) : true
+      )
     : [];
 
   // Get used slugs (to prevent duplicates in dropdowns)
@@ -160,14 +177,69 @@ export default function CityCompare({ cities }: { cities: CityOption[] }) {
       {/* Results */}
       {data && (
         <>
+          {/* Job filter */}
+          <div className="mb-6 bg-gray-50 rounded-lg border border-gray-200 p-4">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-sm font-semibold text-black">
+                Filter by Job Title
+                {selectedJobs.size > 0 && (
+                  <span className="ml-2 text-xs font-normal text-black">
+                    ({selectedJobs.size} selected)
+                  </span>
+                )}
+              </h3>
+              {selectedJobs.size > 0 && (
+                <button
+                  onClick={() => setSelectedJobs(new Set())}
+                  className="text-xs text-blue-600 hover:underline"
+                >
+                  Clear selection (show all)
+                </button>
+              )}
+            </div>
+            <input
+              type="text"
+              value={jobFilter}
+              onChange={(e) => setJobFilter(e.target.value)}
+              placeholder="Search jobs..."
+              className="w-full max-w-sm px-3 py-2 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none text-black text-sm mb-3"
+            />
+            <div className="flex flex-wrap gap-2 max-h-32 overflow-y-auto">
+              {jobOptions.map((c) => {
+                const isSelected = selectedJobs.has(c.occSlug);
+                return (
+                  <button
+                    key={c.occSlug}
+                    onClick={() => {
+                      const next = new Set(selectedJobs);
+                      if (isSelected) {
+                        next.delete(c.occSlug);
+                      } else {
+                        next.add(c.occSlug);
+                      }
+                      setSelectedJobs(next);
+                    }}
+                    className={`text-xs px-2.5 py-1.5 rounded-full border transition-colors ${
+                      isSelected
+                        ? "bg-blue-600 text-white border-blue-600"
+                        : "bg-white text-black border-gray-300 hover:border-blue-400"
+                    }`}
+                  >
+                    {c.occName}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
           {/* Summary */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
             {data.cities.map((city, i) => {
               const avgMedian =
-                data.comparisons.length > 0
+                filteredComparisons.length > 0
                   ? Math.round(
-                      data.comparisons.reduce((s, c) => s + c.salaries[i].median, 0) /
-                        data.comparisons.length
+                      filteredComparisons.reduce((s, c) => s + c.salaries[i].median, 0) /
+                        filteredComparisons.length
                     )
                   : 0;
               return (
@@ -192,9 +264,11 @@ export default function CityCompare({ cities }: { cities: CityOption[] }) {
           {chartData.length > 0 && (
             <div className="mb-6">
               <h3 className="text-sm font-semibold text-black mb-3">
-                Top 10 Highest Paying Jobs (Median Salary)
+                {selectedJobs.size > 0
+                  ? `Comparing ${filteredComparisons.length} Selected Jobs (Median Salary)`
+                  : "Top 10 Highest Paying Jobs (Median Salary)"}
               </h3>
-              <div className="w-full" style={{ height: 420 }}>
+              <div className="w-full" style={{ height: Math.max(200, chartData.length * 42) }}>
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart
                     data={chartData}
@@ -250,7 +324,7 @@ export default function CityCompare({ cities }: { cities: CityOption[] }) {
                 </tr>
               </thead>
               <tbody>
-                {data.comparisons.map((c) => (
+                {filteredComparisons.map((c) => (
                   <tr key={c.occSlug} className="border-b border-gray-100 hover:bg-gray-50">
                     <td className="py-2.5 text-black">{c.occName}</td>
                     {c.salaries.map((s, i) => (
@@ -265,7 +339,7 @@ export default function CityCompare({ cities }: { cities: CityOption[] }) {
           </div>
 
           <p className="text-xs text-black mt-3">
-            Showing {data.comparisons.length} occupations common across all selected cities.
+            Showing {filteredComparisons.length} of {data.comparisons.length} occupations common across all selected cities.
             {data.cities.some((c) => c.currency !== data.cities[0].currency) &&
               " Note: Cities may use different currencies (USD/CAD). Values shown are nominal."}
           </p>
