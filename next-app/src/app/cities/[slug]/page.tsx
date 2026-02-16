@@ -42,7 +42,6 @@ export default async function CityPage({ params }: PageProps) {
   const avgMedian = Math.round(
     records.reduce((sum, r) => sum + r.median_annual, 0) / records.length
   );
-  const totalEmployment = records.reduce((sum, r) => sum + r.employment, 0);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -59,6 +58,9 @@ export default async function CityPage({ params }: PageProps) {
       </h1>
       <p className="text-black mb-8">
         Salary data for {records.length} occupations in the {city.area_name} metro area
+        <span className={`ml-2 text-xs px-2 py-0.5 rounded font-medium ${city.currency === "CAD" ? "bg-red-50 text-red-700" : "bg-blue-50 text-blue-700"}`}>
+          All salaries in {city.currency === "CAD" ? "CAD $" : "USD $"}
+        </span>
       </p>
 
       {/* Summary */}
@@ -73,8 +75,8 @@ export default async function CityPage({ params }: PageProps) {
           <p className="text-sm text-black">{formatSalary(sorted[0].median_annual, sorted[0].currency)}</p>
         </div>
         <div className="bg-white rounded-lg border border-gray-200 p-4">
-          <p className="text-sm text-black">Total Jobs Tracked</p>
-          <p className="text-2xl font-bold">{formatNumber(totalEmployment)}</p>
+          <p className="text-sm text-black">Occupations Tracked</p>
+          <p className="text-2xl font-bold">{records.length}</p>
         </div>
       </div>
 
@@ -125,7 +127,8 @@ export default async function CityPage({ params }: PageProps) {
                 <th className="text-right py-3 font-medium text-black">Median</th>
                 <th className="text-right py-3 font-medium text-black">Average</th>
                 <th className="text-right py-3 font-medium text-black">Range (10th-90th)</th>
-                <th className="text-right py-3 font-medium text-black">Employed</th>
+                <th className="text-right py-3 font-medium text-black">Est. Employed*</th>
+                <th className="text-right py-3 font-medium text-black"></th>
               </tr>
             </thead>
             <tbody>
@@ -153,12 +156,25 @@ export default async function CityPage({ params }: PageProps) {
                     <td className="text-right py-3 text-black">
                       {formatNumber(r.employment)}
                     </td>
+                    <td className="text-right py-3">
+                      <a
+                        href={`https://www.indeed.com/jobs?q=${encodeURIComponent(r.occ_name)}&l=${encodeURIComponent(r.city_short + ", " + r.state)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:underline text-xs"
+                      >
+                        Apply
+                      </a>
+                    </td>
                   </tr>
                 );
               })}
             </tbody>
           </table>
         </div>
+        <p className="text-xs text-black mt-4">
+          *Employment figures are estimates based on national occupational data distributed across metro areas. Actual local numbers may vary.
+        </p>
       </div>
     </div>
   );
